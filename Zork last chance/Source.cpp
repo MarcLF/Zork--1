@@ -8,7 +8,7 @@
 
 World::World() //constructor
 {
-	Room1 = new Room[18];
+	Room1 = new Room[20];
 	p1 = new Player;
 	E1 = new Exit[60];
 }
@@ -21,8 +21,8 @@ Exit::Exit()
 
 void World::CreateWorld()
 {
-	char* RoomNames[11] = { "Start", "Road", "Warehouse", "Sewers", "Purifying Plant", "Gym", "Frost House", "Maze", "Jail", "Old Mansion", "Road" }; // Room Names
-	for (int j = 0; j < 11; j++)
+	char* RoomNames[13] = { "Start", "Road", "Warehouse", "Sewers", "Purifying Plant", "Gym", "Frost House", "Maze", "Jail", "Old Mansion", "Road2", "Road3", "Road4" }; // Room Names
+	for (int j = 0; j < 13; j++)
 	{
 		strcpy_s((Room1 + j)-> name, RoomNames[j]); //Here we are assignint each name a room
 	}
@@ -30,7 +30,7 @@ void World::CreateWorld()
 	char* RoomsInfo[] = 
 	{
 		"You see a big sign which says WELCOME to the COWARD CITY! Where all cowards come to hide from the world!/",
-		"You find  yourself in the middle of a dirty old road",
+		"You find yourself in the middle of a dirty old road",
 		"Warehouse DESCRIPTION //PLACEHOLDER//",
 		"Sewers DESCRIPTION //PLACEHOLDER//",
 		"Purifying Plant DESCRIPTION //PLACEHOLDER//",
@@ -39,9 +39,11 @@ void World::CreateWorld()
 		"Maze DESCRIPTION //PLACEHOLDER//",
 		"Jail DESCRIPTION //PLACEHOLDER//",
 		"Old Mansion DESCRIPTION //PLACEHOLDER//",
-		"You find  yourself in the middle of a dirty old road"
+		"You find yourself in the middle of a dirty old road",
+		"You find yourself in the middle of a dirty old road",
+		"You find yourself in the middle of a dirty old road"
 	};
-	for (int j = 0; j < 11; j++)
+	for (int j = 0; j < 13; j++)
 	{
 		strcpy_s((Room1 + j)-> desc, RoomsInfo[j]); //Here we are assignint each description a room
 	}
@@ -82,7 +84,6 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	{
 		GoSouth();
 	}
-	
 	else if((strcmp("go east", Input) == EQUAL) || (strcmp("go e", Input) == EQUAL) || (strcmp("e", Input) == EQUAL))
 	{
 		GoEast();
@@ -115,20 +116,104 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 
 void World::Exits() const //Here we are giving every exit a description
 {
-	strcpy_s(E1[0].name, "Start");
+	//Start
+	strcpy_s(E1[0].desN, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[0].desS, "There is nothing relevant into that direction");
+	
 	strcpy_s(E1[0].desE, "You see a small path which seems to lead into the town");
 
-	strcpy_s(E1[1].name, "Road");
-	strcpy_s(E1[1].desE, "The road continues");
+	strcpy_s(E1[0].desW, "There is nothing relevant into that direction");
 
-	strcpy_s(E1[1].name, "Road");
-	strcpy_s(E1[1].desN, "In the distance you observe a small warehouse");
+	//Road
+	strcpy_s(E1[1].desN, "A small building appears in front of you, it look like an old warehouse");
 
-	strcpy_s(E1[2].name, "Warehouse");
+	strcpy_s(E1[1].desS, "The path continues");
+
+	strcpy_s(E1[1].desE, "An old Mansion rises before you");
+
+	strcpy_s(E1[1].desW, "That big sign you saw now seems to be smaller from the distance");
+
+	//Warehouse
+	strcpy_s(E1[2].desN, "There is nothing relevant into that direction");
+
 	strcpy_s(E1[2].desS, "There is a door which leads back to the road");
 
-	strcpy_s(E1[4].name, "Road");
-	strcpy_s(E1[4].desS, "There is a small entrance which leads into the sewers");
+	strcpy_s(E1[2].desE, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[2].desW, "There is nothing relevant into that direction");
+
+	//Sewers
+	strcpy_s(E1[3].desN, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[3].desS, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[3].desE, "There is a door which leads back to the road");
+
+	strcpy_s(E1[3].desW, "There is nothing relevant into that direction");
+
+	//Purifying plant
+	strcpy_s(E1[4].desN, "There is a small rusty old door which seems to lead down into the sewers");
+
+	strcpy_s(E1[4].desS, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[4].desE, "There is a big iron door which leads back to the road");
+
+	strcpy_s(E1[4].desW, "There is nothing relevant into that direction");
+
+	//Gym
+	strcpy_s(E1[5].desN, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[5].desS, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[5].desW, "There is a door which leads back to the road");
+
+	strcpy_s(E1[5].desE, "There is nothing relevant into that direction");
+
+	//Frost house
+	strcpy_s(E1[6].desN, "There is an icy door which leads back to the road");
+
+	strcpy_s(E1[6].desS, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[6].desE, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[6].desW, "There is nothing relevant into that direction");
+
+	//Maze
+	strcpy_s(E1[7].desN, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[7].desS, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[7].desE, "There is a small path which leads back to the road");
+
+	strcpy_s(E1[7].desW, "There is nothing relevant into that direction");
+
+	//Jail
+	strcpy_s(E1[8].desN, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[8].desS, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[8].desE, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[8].desW, "There is an armored door which leads back to the road");
+
+	//Old mansion
+	strcpy_s(E1[9].desN, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[9].desS, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[9].desE, "There is nothing relevant into that direction");
+
+	strcpy_s(E1[9].desW, "You see a golden door which leads back to the road");
+
+	//Road 2
+	strcpy_s(E1[10].desN, "The path continues");
+
+	strcpy_s(E1[10].desS, "There is an icy door");
+
+	strcpy_s(E1[10].desE, "There is a door which leads to the gym");
+
+	strcpy_s(E1[10].desW, "There is a door which leads to the sewers");
 }
 
 //Movement
@@ -140,17 +225,39 @@ void World::GoNorth()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	if (p1->posX == 4)
+	else if (p1->posX == 4)
 	{
 		p1->posX = 3;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	if (p1->posX == 6)
+	else if (p1->posX == 6)
+	{
+		p1->posX = 12;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 12)
+	{
+		p1->posX = 11;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 11)
+	{
+		p1->posX = 10;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 10)
 	{
 		p1->posX = 1;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
+	}
+	else
+	{
+		printf("You can't go to that direction!!!\n");
 	}
 }
 
@@ -162,33 +269,89 @@ void World::GoSouth()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	if (p1->posX == 1)
+	else if (p1->posX == 1)
 	{
 		p1->posX = 10;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	if (p1->posX == 2)
+	else if (p1->posX == 10)
+	{
+		p1->posX = 11;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 11)
+	{
+		p1->posX = 12;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 12)
+	{
+		p1->posX = 6;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 2)
 	{
 		p1->posX = 1;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
+	}
+	else
+	{
+		printf("You can't go to that direction!!!\n");
 	}
 }
 
 void World::GoEast()
 {
-	if (p1->posX == 1)
-	{
-		p1->posX = 9;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
-	}
 	if (p1->posX == 0)
 	{
 		p1->posX = 1;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 1)
+	{
+		p1->posX = 9;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 10)
+	{
+		p1->posX = 8;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 11)
+	{
+		p1->posX = 5;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 12)
+	{
+		p1->posX = 7;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 3)
+	{
+		p1->posX = 10;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 4)
+	{
+		p1->posX = 11;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else
+	{
+		printf("You can't go to that direction!!!\n");
 	}
 }
 
@@ -200,11 +363,39 @@ void World::GoWest()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
+	else if (p1->posX == 9)
+	{
+		p1->posX = 1;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 8)
+	{
+		p1->posX = 10;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 7)
+	{
+		p1->posX = 12;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 5)
+	{
+		p1->posX = 11;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else
+	{
+		printf("You can't go to that direction!!!\n");
+	}
 }
 
 void World::LookNorth()
 {
-	if (p1->posX == 0)
+	if (p1->posX == 1)
 	{
 		printf("\n%s\n", E1[p1->posX].desN);
 	}
@@ -212,15 +403,19 @@ void World::LookNorth()
 
 void World::LookSouth()
 {
-	if (p1->posX == 0)
+	if (p1->posX == 2)
 	{
-		printf("\n%s\n", E1[p1->posX].desN);
+		printf("\n%s\n", E1[p1->posX].desS);
 	}
 }
 
 void World::LookEast()
 {
-	if (p1->posX == 0)
+	if (p1->posX == 1)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	if (p1->posX == 2)
 	{
 		printf("\n%s\n", E1[p1->posX].desE);
 	}

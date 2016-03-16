@@ -2,6 +2,6 @@ class Room
 {
 public:
 	Room();
-	char name[30], desc[200], dir;
+	char name[50], desc[200];
 	~Room();
 };
