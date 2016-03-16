@@ -1,5 +1,5 @@
 class Player
 {
 public:
-	int pos = 0;
+	int posX = 0;
 };

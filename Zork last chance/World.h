@@ -7,9 +7,9 @@ class World
 public:
 	World();
 
-	Room* Room1 = nullptr;
-	Exit* E1 = nullptr;
-	Player* p1 = nullptr;
+	Room* Room1;
+	Exit* E1;
+	Player* p1;
 
 	void CreateWorld();
 	void Input();
