@@ -22,8 +22,6 @@ public:
 	void LookSouth();
 	void LookWest();
 	void LookEast();
-	void OpenDoor();
-	void CloseDoor();
 
 	~World();
 };

@@ -10,7 +10,7 @@ World::World() //constructor
 {
 	Room1 = new Room[20];
 	p1 = new Player;
-	E1 = new Exit[60];
+	E1 = new Exit[20];
 }
 Room::Room()
 {
@@ -24,21 +24,21 @@ void World::CreateWorld()
 	char* RoomNames[13] = { "Start", "Road", "Warehouse", "Sewers", "Purifying Plant", "Gym", "Frost House", "Maze", "Jail", "Old Mansion", "Road2", "Road3", "Road4" }; // Room Names
 	for (int j = 0; j < 13; j++)
 	{
-		strcpy_s((Room1 + j)-> name, RoomNames[j]); //Here we are assignint each name a room
+		strcpy_s((Room1 + j)->name, RoomNames[j]); //Here we are assignint each name a room
 	}
 	//Room descriptions
 	char* RoomsInfo[] = 
 	{
 		"You see a big sign which says WELCOME to the COWARD CITY! Where all cowards come to hide from the world!/",
 		"You find yourself in the middle of a dirty old road",
-		"Warehouse DESCRIPTION //PLACEHOLDER//",
-		"Sewers DESCRIPTION //PLACEHOLDER//",
-		"Purifying Plant DESCRIPTION //PLACEHOLDER//",
-		"Gym DESCRIPTION //PLACEHOLDER//",
-		"Frost House DESCRIPTION //PLACEHOLDER//",
-		"Maze DESCRIPTION //PLACEHOLDER//",
-		"Jail DESCRIPTION //PLACEHOLDER//",
-		"Old Mansion DESCRIPTION //PLACEHOLDER//",
+		"You are in a warehouse",
+		"You are in a sewer",
+		"You are in a purifying plant",
+		"You are in a gym",
+		"You are in a frost house",
+		"You are in a maze",
+		"You are in a jail",
+		"You are in a old mansion",
 		"You find yourself in the middle of a dirty old road",
 		"You find yourself in the middle of a dirty old road",
 		"You find yourself in the middle of a dirty old road"
@@ -91,6 +91,11 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	else if((strcmp("go west", Input) == EQUAL) || (strcmp("go w", Input) == EQUAL) || (strcmp("w", Input) == EQUAL))
 	{
 		GoWest();
+	}
+	else if((strcmp("look", Input) == EQUAL))
+	{
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
 	}
 	else if((strcmp("look north", Input) == EQUAL) || (strcmp("look n", Input) == EQUAL) || (strcmp("l n", Input) == EQUAL))
 	{
@@ -209,11 +214,29 @@ void World::Exits() const //Here we are giving every exit a description
 	//Road 2
 	strcpy_s(E1[10].desN, "The path continues");
 
-	strcpy_s(E1[10].desS, "There is an icy door");
+	strcpy_s(E1[10].desS, "The path continues");
 
-	strcpy_s(E1[10].desE, "There is a door which leads to the gym");
+	strcpy_s(E1[10].desE, "There is a locked door which leads to the jail");
 
 	strcpy_s(E1[10].desW, "There is a door which leads to the sewers");
+
+	//Road 3
+	strcpy_s(E1[11].desN, "The path continues");
+
+	strcpy_s(E1[11].desS, "The path continues");
+
+	strcpy_s(E1[11].desE, "There is a door which leads to the gym");
+
+	strcpy_s(E1[11].desW, "There is a door which leads to the purifying plant");
+
+	//Road 4
+	strcpy_s(E1[12].desN, "The path continues");
+
+	strcpy_s(E1[12].desS, "There is an icy door");
+
+	strcpy_s(E1[12].desE, "You see the entrance of a maze");
+
+	strcpy_s(E1[12].desW, "There is nothing relevant into that direction");
 }
 
 //Movement
@@ -363,6 +386,12 @@ void World::GoWest()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
+	else if (p1->posX == 1)
+	{
+		p1->posX = 0;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
 	else if (p1->posX == 9)
 	{
 		p1->posX = 1;
@@ -387,6 +416,12 @@ void World::GoWest()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
+	else if (p1->posX == 11)
+	{
+		p1->posX = 4;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
 	else
 	{
 		printf("You can't go to that direction!!!\n");
@@ -395,7 +430,59 @@ void World::GoWest()
 
 void World::LookNorth()
 {
-	if (p1->posX == 1)
+	if (p1->posX == 0)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 1)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 2)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 3)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 4)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 5)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 6)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 7)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 8)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 8)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 9)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 10)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 11)
+	{
+		printf("\n%s\n", E1[p1->posX].desN);
+	}
+	else if (p1->posX == 12)
 	{
 		printf("\n%s\n", E1[p1->posX].desN);
 	}
@@ -403,7 +490,59 @@ void World::LookNorth()
 
 void World::LookSouth()
 {
-	if (p1->posX == 2)
+	if (p1->posX == 0)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 1)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 2)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 3)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 4)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 5)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 6)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 7)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 8)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 8)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 9)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 10)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 11)
+	{
+		printf("\n%s\n", E1[p1->posX].desS);
+	}
+	else if (p1->posX == 12)
 	{
 		printf("\n%s\n", E1[p1->posX].desS);
 	}
@@ -411,11 +550,59 @@ void World::LookSouth()
 
 void World::LookEast()
 {
-	if (p1->posX == 1)
+	if (p1->posX == 0)
 	{
 		printf("\n%s\n", E1[p1->posX].desE);
 	}
-	if (p1->posX == 2)
+	else if (p1->posX == 1)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 2)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 3)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 4)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 5)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 6)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 7)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 8)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 8)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 9)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 10)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 11)
+	{
+		printf("\n%s\n", E1[p1->posX].desE);
+	}
+	else if (p1->posX == 12)
 	{
 		printf("\n%s\n", E1[p1->posX].desE);
 	}
@@ -425,7 +612,59 @@ void World::LookWest()
 {
 	if (p1->posX == 0)
 	{
-		printf("\n%s\n", E1[p1->posX].desN);
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 1)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 2)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 3)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 4)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 5)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 6)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 7)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 8)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 8)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 9)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 10)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 11)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
+	}
+	else if (p1->posX == 12)
+	{
+		printf("\n%s\n", E1[p1->posX].desW);
 	}
 }
 
@@ -442,6 +681,7 @@ int main()
 
 	while (1)
 	{
+		printf("\n>");
 		scenary.Input();
 	}
 

@@ -4,7 +4,7 @@ class Exit
 {
 public:
 	Exit();
-	char name[200], desN[200], desS[200], desE[200], desW[200];
+	char desN[200], desS[200], desE[200], desW[200];
 	int lockedDoor = 1;
 	~Exit();
 };
