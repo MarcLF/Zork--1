@@ -1,5 +1,3 @@
-enum directions { n, s, e, w }; //north south east and west
-
 class Exit
 {
 public:
