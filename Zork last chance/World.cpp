@@ -11,6 +11,29 @@ World::World() //constructor
 	Room1 = new Room[20]; //Room1 = Rooms
 	p1 = new Player; //p1 = Player
 	E1 = new Exit[20]; //E1 = Exits
+	CashLeft = new Items2; //Cash left in the map
+	CashInv = new Items; //Cash inventory
+}
+void World::Cash()
+{
+	printf("You take some cash\n");
+	printf(R"EOF(
+||====================================================================||
+||//$\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//$\\||
+||(100)==================| RESERVE BANK OF INDIA|================(100)||
+||\\$//        ~         '------========--------'                \\$//||
+||<< /        /$\              // ____ \\                         \ >>||
+||>>|        //L\\            // ///..) \\              XXXX       |<<||
+||<<|        \\ //           || <||  >\  ||                        |>>||
+||>>|         \$/            ||  $$ --/  ||          XXXXXXXXX     |<<||
+||<<|     Free to Use        *\\  |\_/  //*                        |>>||
+||>>|                         *\\/___\_//*                         |<<||
+||<<\      Rating: E     _____/ M GANDHI \________    XX XXXXX     />>||
+||//$\                 ~|    REPUBLIC OF INDIA   |~               /$\\||
+||(100)===================   ONE HUNDRED RUPEES =================(100)||
+||\\$//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\$//||
+||====================================================================||
+)EOF");
 }
 
 void World::CreateWorld()
@@ -25,7 +48,7 @@ void World::CreateWorld()
 	{
 		"You see a big sign which says WELCOME to the COWARD CITY! Where all cowards come to hide from the rest of the world!/",
 		"You find yourself in the middle of a dirty old road",
-		"You are in a warehouse",
+		"You are in a warehouse, in front of you there is a table with a few bills",
 		"You are in a sewer",
 		"You are in a purifying plant",
 		"You are in a gym",
@@ -56,14 +79,29 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	char Input[15];
 	gets_s(Input);
 
+	//Various
 	if (strcmp("exit", Input) == EQUAL || strcmp("quit", Input) == EQUAL)//strcmp returns 0 if both strings are the same
 	{
 		exit(0);
 	}
 	else if (strcmp("help", Input) == EQUAL || strcmp("Help", Input) == EQUAL)
 	{
-		printf("Move options -> \nTo go north: go north | north | go n | n\nTo go south: go south | south | go s | s\nTo go east:  go east | east | go e | e\nTo go west:  go west | west | go e | e\nIf you want to get information about the room you are in type 'Look'\n or if you prefer to know about the exits you can take type: look [direction] | look [n/s/e/w]\Type 'exit' or 'quit' to leave");
+		printf(R"EOF(Move options ->
+		To go north: go north | north | go n | n
+		To go south: go south | south | go s | s
+		To go east:  go east  | east  | go e | e
+		To go west:  go west  | west  | go e | e
+		If you want to get information about the room you are in type 'Look' 
+		There are other options like bribe a npc or to open / close a door
+		or if you prefer to know about the exits you can take type: look [direction] or look [n/s/e/w]
+		Type 'system cls' to clean the screen 'exit' or 'quit' to leave)EOF");
 	}
+	else if (strcmp("system cls", Input) == EQUAL)
+	{
+		system("cls");
+	}
+
+	//Movement inputs
 	else if ((strcmp("go north", Input) == EQUAL) || (strcmp("north", Input) == EQUAL) || (strcmp("go n", Input) == EQUAL) || (strcmp("n", Input) == EQUAL))
 	{
 		GoNorth();
@@ -80,26 +118,30 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	{
 		GoWest();
 	}
-	else if ((strcmp("open door", Input) == EQUAL) || (strcmp("open d", Input) == EQUAL) || (strcmp("o d", Input) == EQUAL))
+	else if ((strcmp("go", Input) == EQUAL))
 	{
-		if (p1->posX == 1)
+		printf("go where?\n\n>");
+		gets_s(Input);
+
+		if ((strcmp("north", Input) == EQUAL))
 		{
-			printf("Door is open\n");
-			openDoor = true;
+			GoNorth();
 		}
-		else
+		else if ((strcmp("south", Input) == EQUAL))
 		{
-			printf("There is no door to open\n");
+			GoSouth();
+		}
+		else if ((strcmp("east", Input) == EQUAL))
+		{
+			GoEast();
+		}
+		else if ((strcmp("west", Input) == EQUAL))
+		{
+			GoWest();
 		}
 	}
-	else if ((strcmp("close door", Input) == EQUAL) || (strcmp("close d", Input) == EQUAL) || (strcmp("c d", Input) == EQUAL))
-	{
-		if (p1->posX == 1 && openDoor == true)
-		{
-			printf("You close the door\n");
-			openDoor = false;
-		}
-	}
+
+	//Look inputs
 	else if ((strcmp("look", Input) == EQUAL))
 	{
 		Look();
@@ -120,6 +162,84 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	{
 		LookWest();
 	}
+
+	//Open / Close door inputs
+	else if ((strcmp("open door", Input) == EQUAL) || (strcmp("open d", Input) == EQUAL) || (strcmp("o d", Input) == EQUAL))
+	{
+		if (p1->posX == 1 || p1->posX == 2)
+		{
+			printf("Door is open\n");
+			openDoor = true;
+		}
+		else
+		{
+			printf("There is no door to open\n");
+		}
+	}
+	else if ((strcmp("close door", Input) == EQUAL) || (strcmp("close d", Input) == EQUAL) || (strcmp("c d", Input) == EQUAL))
+	{
+		if (p1->posX == 1 && openDoor == true)
+		{
+			printf("You close the door\n");
+			openDoor = false;
+		}
+		else if (p1->posX == 2 && openDoor == true)
+		{
+			printf("You close the door\n");
+			openDoor = false;
+		}
+	}
+
+	//Take / pick up inputs
+	else if ((strcmp("take cash", Input) == EQUAL) || (strcmp("pick up cash", Input) == EQUAL))
+	{
+		if ((p1->posX == 2) && CashLeft->Cash2 == 1)
+		{
+			Cash();
+			CashInv->CashX = 1;
+			CashLeft->Cash2 = 0;
+		}
+		else
+		{
+			printf("There is no cash to take\n");
+		}
+	}
+	else if ((strcmp("take", Input) == EQUAL) || (strcmp("pick up", Input) == EQUAL))
+	{
+		printf("What item?\n\n>");
+		gets_s(Input);
+		if ((strcmp("cash", Input) == EQUAL) && p1->posX == 2 && (CashInv->CashX == 0 && CashLeft->Cash2 == 1))
+		{
+			Cash();
+			CashInv->CashX = 1;
+			CashLeft->Cash2 = 0;
+		}
+		else if ((strcmp("cash", Input) == EQUAL) && p1->posX != 2 && CashLeft->Cash2 == 0)
+		{
+			printf("There is no cash to take");
+		}
+		else
+		{
+			printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
+		}
+	}
+
+	//Actions inputs
+	else if ((strcmp("bribe guards", Input) == EQUAL))
+	{
+		if (CashInv->CashX == 1 && CashLeft->Cash2 == 0)
+		{
+			CashInv->CashX = 0;
+			printf("Both guards look at each other and after a few seconds take the money and left the entrance\n");
+			openDoor2 = true;
+		}
+		else
+		{
+			printf("You have nothing to bribe them\n");
+		}
+	}
+
+	//Error message
 	else
 	{
 		printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
@@ -285,7 +405,7 @@ void World::GoNorth()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	else if (openDoor == false)
+	else if (p1->posX == 1 && openDoor == false)
 	{
 		printf("Door is closed\n");
 	}
@@ -327,11 +447,15 @@ void World::GoSouth()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	else if (p1->posX == 2)
+	else if (p1->posX == 2 && openDoor == true)
 	{
 		p1->posX = 1;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 2 && openDoor == false)
+	{
+		printf("Door is closed\n");
 	}
 	else
 	{
@@ -427,11 +551,15 @@ void World::GoWest()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	else if (p1->posX == 11)
+	else if (p1->posX == 11 && openDoor2 == true) 
 	{
 		p1->posX = 4;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 11 && openDoor2 == false)
+	{
+		printf("There are two guards blocking the entrance\n");
 	}
 	else
 	{

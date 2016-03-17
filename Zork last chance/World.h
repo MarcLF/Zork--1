@@ -1,15 +1,20 @@
 #include"Room.h"
 #include"Player.h"
 #include"Exits.h"
+#include"Items.h"
 
 class World
 {
 public:
 	World();
 
-	Room* Room1;
-	Exit* E1;
-	Player* p1;
+	Room* Room1; //Room name
+	Exit* E1; // Exits name
+	Player* p1; //Player name
+	Items* CashInv;
+	Items2* CashLeft;
+
+	void Cash();
 
 	void CreateWorld();
 	void Input();
@@ -25,6 +30,7 @@ public:
 	void LookEast();
 	void closeDoor();
 	bool openDoor = false;
+	bool openDoor2 = false;
 
 	~World();
 };
