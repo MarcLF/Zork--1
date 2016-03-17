@@ -18,10 +18,13 @@ public:
 	void GoSouth();
 	void GoEast();
 	void GoWest();
+	void Look();
 	void LookNorth();
 	void LookSouth();
 	void LookWest();
 	void LookEast();
+	void closeDoor();
+	bool openDoor = false;
 
 	~World();
 };

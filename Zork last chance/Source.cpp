@@ -65,7 +65,7 @@ Exit::~Exit()
 
 void World::Input()// Here we recieve the Input from the player and execute his/her order
 {
-	char Input[10];
+	char Input[15];
 	gets_s(Input);
 
 	if (strcmp("exit", Input) == EQUAL || strcmp("quit", Input) == EQUAL)//strcmp returns 0 if both strings are the same
@@ -92,10 +92,29 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	{
 		GoWest();
 	}
+	else if ((strcmp("open door", Input) == EQUAL) || (strcmp("open d", Input) == EQUAL) || (strcmp("o d", Input) == EQUAL))
+	{
+		if (p1->posX == 1)
+		{
+			printf("Door is open\n");
+			openDoor = true;
+		}
+		else
+		{
+			printf("There is no door to open\n");
+		}
+	}
+	else if ((strcmp("close door", Input) == EQUAL) || (strcmp("close d", Input) == EQUAL) || (strcmp("c d", Input) == EQUAL))
+	{
+		if (p1->posX == 1 && openDoor == true)
+		{
+			printf("You close the door\n");
+			openDoor = false;
+		}
+	}
 	else if((strcmp("look", Input) == EQUAL))
 	{
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		Look();
 	}
 	else if((strcmp("look north", Input) == EQUAL) || (strcmp("look n", Input) == EQUAL) || (strcmp("l n", Input) == EQUAL))
 	{
@@ -115,7 +134,7 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	}
 	else
 	{
-		printf("I didn't understand your order, please try another one or type 'help' to see more info\n");
+		printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
 	}
 }
 
@@ -242,7 +261,7 @@ void World::Exits() const //Here we are giving every exit a description
 //Movement
 void World::GoNorth()
 {
-	if (p1->posX == 1)
+	if (openDoor == true && p1->posX == 1)
 	{
 		p1->posX = 2;
 		puts(Room1[p1->posX].name);
@@ -277,6 +296,10 @@ void World::GoNorth()
 		p1->posX = 1;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
+	}
+	else if (openDoor == false)
+	{
+		printf("Door is closed\n");
 	}
 	else
 	{
@@ -426,6 +449,12 @@ void World::GoWest()
 	{
 		printf("You can't go to that direction!!!\n");
 	}
+}
+
+void World::Look()
+{
+	puts(Room1[p1->posX].name);
+	puts(Room1[p1->posX].desc);
 }
 
 void World::LookNorth()
