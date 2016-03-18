@@ -74,6 +74,8 @@ World::~World()
 	delete[] Room1;
 	delete p1;
 	delete[]E1;
+	delete CashLeft;
+	delete CashInv;
 }
 
 void World::Input()// Here we recieve the Input from the player and execute his/her order
