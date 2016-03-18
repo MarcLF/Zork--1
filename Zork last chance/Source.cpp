@@ -3,13 +3,23 @@
 #include <string>
 #include <conio.h>
 #include "World.h"
+#include "Welcome Screen.h"
+#include <cstdlib>//Necessary for system("MODE CON COLS=100 LINES=60")
 
 int main()
 {
 	World scenary;
-
+	Welcome screen;
+	
+	system("MODE CON COLS=100 LINES=60");//I used this command so the whole image fit into the screen
 	scenary.CreateWorld();
 	scenary.Exits();
+
+	screen.WelcomeScreen();//Welcome screen image
+
+	printf("Press any key to continue");
+	_getch();
+	system("cls");
 
 	printf("--Welcome to Zork: Last Chance--\n\n");
 	printf("%s\n", scenary.Room1[0].name);

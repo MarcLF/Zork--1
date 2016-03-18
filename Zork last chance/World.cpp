@@ -15,29 +15,6 @@ World::World() //constructor
 	CashInv = new Items; //Cash inventory
 }
 
-//Items
-void World::Cash()
-{
-	printf("You take some cash\n");
-	printf(R"EOF(
-||====================================================================||
-||//$\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//$\\||
-||(100)==================| RESERVE BANK OF INDIA|================(100)||
-||\\$//        ~         '------========--------'                \\$//||
-||<< /        /$\              // ____ \\                         \ >>||
-||>>|        //L\\            // ///..) \\              XXXX       |<<||
-||<<|        \\ //           || <||  >\  ||                        |>>||
-||>>|         \$/            ||  $$ --/  ||          XXXXXXXXX     |<<||
-||<<|     Free to Use        *\\  |\_/  //*                        |>>||
-||>>|                         *\\/___\_//*                         |<<||
-||<<\      Rating: E     _____/ M GANDHI \________    XX XXXXX     />>||
-||//$\                 ~|    REPUBLIC OF INDIA   |~               /$\\||
-||(100)===================   ONE HUNDRED RUPEES =================(100)||
-||\\$//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\$//||
-||====================================================================||
-)EOF");
-}
-
 void World::CreateWorld()
 {
 	char* RoomNames[13] = { "Start", "Road", "Warehouse", "Sewers", "Purifying Plant", "Gym", "Frost House", "Maze", "Jail", "Old Mansion", "Road", "Road", "Road" }; // Room Names
@@ -45,6 +22,7 @@ void World::CreateWorld()
 	{
 		strcpy_s((Room1 + j)->name, RoomNames[j]); //Here we are assignint each name a room
 	}
+
 	//Room descriptions
 	char* RoomsInfo[] =
 	{
@@ -80,6 +58,8 @@ World::~World()
 
 void World::Input()// Here we recieve the Input from the player and execute his/her order
 {
+	Items CashImg;//Cash image
+
 	char Input[15];
 	gets_s(Input);
 
@@ -199,7 +179,7 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	{
 		if ((p1->posX == 2) && CashLeft->Cash2 == 1)
 		{
-			Cash();
+			CashImg.CashImage();
 			CashInv->CashX = 1;
 			CashLeft->Cash2 = 0;
 		}
@@ -214,7 +194,7 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 		gets_s(Input);
 		if ((strcmp("cash", Input) == EQUAL) && p1->posX == 2 && (CashInv->CashX == 0 && CashLeft->Cash2 == 1))
 		{
-			Cash();
+			CashImg.CashImage();
 			CashInv->CashX = 1;
 			CashLeft->Cash2 = 0;
 		}
