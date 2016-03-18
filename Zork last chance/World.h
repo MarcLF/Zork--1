@@ -6,7 +6,8 @@
 class World
 {
 public:
-	World();
+
+	World(); //Constructor
 
 	Room* Room1; //Room name
 	Exit* E1; // Exits name
@@ -14,23 +15,29 @@ public:
 	Items* CashInv;//Cash you have in the inventory
 	Items* CashLeft;//Cash left in the map
 
-	void Cash();
-
 	void CreateWorld();
-	void Input();
+	void Input(); //Read the input from the player
 	void Exits() const;
+
+	//Move functions
 	void GoNorth();
 	void GoSouth();
 	void GoEast();
 	void GoWest();
+
+	//Look functions
 	void Look();
 	void LookNorth();
 	void LookSouth();
 	void LookWest();
 	void LookEast();
+
+	//Open/close door functions
 	void closeDoor();
 	bool openDoor = false;
-	bool openDoor2 = false;
 
-	~World();
+	//Other actions
+	bool BribeGuards = false;
+
+	~World(); //Destructor
 };

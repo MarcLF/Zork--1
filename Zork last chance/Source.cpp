@@ -22,8 +22,8 @@ int main()
 	system("cls");
 
 	printf("--Welcome to Zork: Last Chance--\n\n");
-	printf("%s\n", scenary.Room1[0].name);
-	printf("\n%s\n", scenary.Room1[0].desc);
+	puts(scenary.Room1[0].name);
+	puts(scenary.Room1[0].desc);
 
 	while (1)
 	{

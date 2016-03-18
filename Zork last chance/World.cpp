@@ -215,7 +215,7 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 		{
 			CashInv->CashX = 0;
 			printf("Both guards look at each other and after a few seconds take the money and left the entrance\n");
-			openDoor2 = true;
+			BribeGuards = true;
 		}
 		else
 		{
@@ -397,7 +397,7 @@ void World::GoNorth()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	else if (p1->posX == 1 && openDoor == false)
+	else if (p1->posX == 1 && openDoor == false)// If the door is closed
 	{
 		printf("Door is closed\n");
 	}
@@ -439,13 +439,13 @@ void World::GoSouth()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	else if (p1->posX == 2 && openDoor == true)
+	else if (p1->posX == 2 && openDoor == true)// If the door is open
 	{
 		p1->posX = 1;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	else if (p1->posX == 2 && openDoor == false)
+	else if (p1->posX == 2 && openDoor == false)// If the door is closed
 	{
 		printf("Door is closed\n");
 	}
@@ -543,13 +543,13 @@ void World::GoWest()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	else if (p1->posX == 11 && openDoor2 == true) 
+	else if (p1->posX == 11 && BribeGuards == true) // If you have bribed the guards
 	{
 		p1->posX = 4;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	else if (p1->posX == 11 && openDoor2 == false)
+	else if (p1->posX == 11 && BribeGuards == false) //If you don't have bribed the guards
 	{
 		printf("There are two guards blocking the entrance\n");
 	}
@@ -559,6 +559,7 @@ void World::GoWest()
 	}
 }
 
+//Look
 void World::Look()
 {
 	if (p1->posX == 2 && CashLeft->Cash2 == 0)
