@@ -11,7 +11,7 @@ int main()
 	World scenary;
 	Welcome screen;
 	
-	system("MODE CON COLS=100 LINES=60");//I used this command so the whole image fit into the screen
+	system("MODE CON COLS=100 LINES=55");//I used this command so the whole image fit into the screen
 	scenary.CreateWorld();
 	scenary.Exits();
 
