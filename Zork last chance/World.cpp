@@ -376,8 +376,16 @@ void World::GoNorth()
 	if (openDoor == true && p1->posX == 1)
 	{
 		p1->posX = 2;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		if (CashLeft->Cash2 == 1)
+		{
+			puts(Room1[p1->posX].name);
+			puts(Room1[p1->posX].desc);
+		}
+		else
+		{
+			puts(Room1[p1->posX].name);
+			printf("You are in a warehouse, in front of you there the table where you took the money");
+		}
 	}
 	else if (p1->posX == 4)
 	{
@@ -573,8 +581,16 @@ void World::GoWest()
 
 void World::Look()
 {
-	puts(Room1[p1->posX].name);
-	puts(Room1[p1->posX].desc);
+	if (p1->posX == 2 && CashLeft->Cash2 == 0)
+	{
+		puts(Room1[p1->posX].name);
+		printf("You are in a warehouse, in front of you there the table where you took the money");
+	}
+	else
+	{
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
 }
 
 void World::LookNorth()
