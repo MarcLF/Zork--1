@@ -11,7 +11,7 @@ World::World() //constructor
 	Room1 = new Room[20]; //Room1 = Rooms
 	p1 = new Player; //p1 = Player
 	E1 = new Exit[20]; //E1 = Exits
-	CashLeft = new Items2; //Cash left in the map
+	CashLeft = new Items; //Cash left in the map
 	CashInv = new Items; //Cash inventory
 }
 

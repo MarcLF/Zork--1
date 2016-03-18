@@ -11,8 +11,8 @@ public:
 	Room* Room1; //Room name
 	Exit* E1; // Exits name
 	Player* p1; //Player name
-	Items* CashInv;
-	Items2* CashLeft;
+	Items* CashInv;//Cash you have in the inventory
+	Items* CashLeft;//Cash left in the map
 
 	void Cash();
 
