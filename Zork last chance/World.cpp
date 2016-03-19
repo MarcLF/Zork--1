@@ -53,7 +53,7 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	Items CashImg;//Cash image
 
 	
-	char Input[15];
+	char Input[30];
 	gets_s(Input);
 
 	//Various

@@ -7,7 +7,7 @@ void World::Maze() //This function represents a minigame for the player which he
 {
 	int cont = 0;
 	char Maze[30] = "You are still in the Maze";
-	char Input[15];
+	char Input[30];
 
 	while (cont < 5) //Until Cont reach 5 the player won't be able to get out of the Maze
 	{
