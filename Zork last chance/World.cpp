@@ -17,8 +17,8 @@ World::World() //constructor
 
 void World::CreateWorld()
 {
-	char* RoomNames[13] = { "Start", "Road", "Warehouse", "Sewers", "Purifying Plant", "Gym", "Frost House", "Maze", "Jail", "Old Mansion", "Road", "Road", "Road" }; // Room Names
-	for (int j = 0; j < 13; j++)
+	char* RoomNames[14] = { "Start", "Road", "Warehouse", "Sewers", "Purifying Plant", "Gym", "Frost House", "Maze", "Jail", "Old Mansion", "Road", "Road", "Road", "Inside the Maze"}; // Room Names
+	for (int j = 0; j < 14; j++)
 	{
 		strcpy_s((Room1 + j)->name, RoomNames[j]); //Here we are assignint each name a room
 	}
@@ -33,14 +33,15 @@ void World::CreateWorld()
 		"You are in a purifying plant.",
 		"An old gym with a small boxing ring in the middle.",
 		"If you were wondering why the main door was frost as hell now you know the reason, this house is a freezer!",
-		"What first seemed like a garden it looks now like an immense maze.",
+		"What first seemed like a garden it looks now like an immense maze. Becare where you go or you might get lost.",
 		"It seems this building was a jail once, now its nothing but some old empty cells.",
 		"After going across that ugly golden door, you find yourself in the living room of a dusty big old mansion.",
 		"Moving a little forward you start discerning more buildings around you.",
 		"You are still on the same road surrounded by some buildings, ah..this road seems endless.",
-		"This is the end of the road, in front of you shows up a small building with a strange frost door."
+		"This is the end of the road, in front of you shows up a small building with a strange frost door.",
+		"Suddenly you find yourself lost deep into the maze."
 	};
-	for (int j = 0; j < 13; j++)
+	for (int j = 0; j < 14; j++)
 	{
 		strcpy_s((Room1 + j)->desc, RoomsInfo[j]); //Here we are assignint each description a room
 	}
@@ -60,6 +61,7 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 {
 	Items CashImg;//Cash image
 
+	
 	char Input[15];
 	gets_s(Input);
 
@@ -397,6 +399,17 @@ void World::GoNorth()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
+	else if (p1->posX == 7) //Maze
+	{
+		p1->posX = 13;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 13) //Maze Loop
+	{
+		printf("You are still in the Maze\n");
+		Maze();
+	}
 	else if (p1->posX == 1 && openDoor == false)// If the door is closed
 	{
 		printf("Door is closed\n");
@@ -438,6 +451,17 @@ void World::GoSouth()
 		p1->posX = 6;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 7) //Maze
+	{
+		p1->posX = 13;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 13) //Maze Loop
+	{
+		printf("You are still in the Maze\n");
+		Maze();
 	}
 	else if (p1->posX == 2 && openDoor == true)// If the door is open
 	{
@@ -499,6 +523,17 @@ void World::GoEast()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
+	else if (p1->posX == 7) //Maze
+	{
+		p1->posX = 13;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 13) //Maze Loop
+	{
+		printf("You are still in the Maze\n");
+		Maze();
+	}
 	else
 	{
 		printf("You can't go to that direction!!!\n");
@@ -531,17 +566,22 @@ void World::GoWest()
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
 	}
-	else if (p1->posX == 7)
-	{
-		p1->posX = 12;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
-	}
 	else if (p1->posX == 5)
 	{
 		p1->posX = 11;
 		puts(Room1[p1->posX].name);
 		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 7) //Maze
+	{
+		p1->posX = 13;
+		puts(Room1[p1->posX].name);
+		puts(Room1[p1->posX].desc);
+	}
+	else if (p1->posX == 13) //Maze Loop
+	{
+		printf("You are still in the Maze\n");
+		Maze();
 	}
 	else if (p1->posX == 11 && BribeGuards == true) // If you have bribed the guards
 	{

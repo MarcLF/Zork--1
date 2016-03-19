@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Items.cpp" />
+    <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Welcome Screen.cpp" />
     <ClCompile Include="World.cpp" />

@@ -38,6 +38,7 @@ public:
 
 	//Other actions
 	bool BribeGuards = false;
+	void Maze(); //When the player enters the room Inside the Maze it will automatically call this function
 
 	~World(); //Destructor
 };
