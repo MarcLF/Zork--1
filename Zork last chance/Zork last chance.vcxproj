@@ -72,8 +72,11 @@
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Exits.cpp" />
     <ClCompile Include="Items.cpp" />
+    <ClCompile Include="Look.cpp" />
     <ClCompile Include="Maze.cpp" />
+    <ClCompile Include="Movement.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Welcome Screen.cpp" />
     <ClCompile Include="World.cpp" />

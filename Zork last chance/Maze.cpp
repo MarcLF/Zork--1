@@ -26,6 +26,10 @@ void World::Maze() //This function represents a minigame for the player which he
 				puts(Maze);
 				cont++;
 			}
+			else
+			{
+				puts(Maze);
+			}
 		}
 		else if ((strcmp("go south", Input) == EQUAL) || (strcmp("south", Input) == EQUAL) || (strcmp("go s", Input) == EQUAL) || (strcmp("s", Input) == EQUAL))
 		{
@@ -38,6 +42,11 @@ void World::Maze() //This function represents a minigame for the player which he
 				puts(Maze);
 				cont++;
 			}
+			else if ((strcmp("go west", Input) == EQUAL) || (strcmp("west", Input) == EQUAL) || (strcmp("go w", Input) == EQUAL) || (strcmp("west", Input) == EQUAL))
+			{
+				puts(Maze);
+				cont++;
+			}
 			else
 			{
 				puts(Maze);
@@ -45,7 +54,7 @@ void World::Maze() //This function represents a minigame for the player which he
 		}
 		else if ((strcmp("go east", Input) == EQUAL) || (strcmp("east", Input) == EQUAL) || (strcmp("go e", Input) == EQUAL) || (strcmp("e", Input) == EQUAL))
 		{
-			Maze;
+			puts(Maze);
 			printf("\n>");
 			gets_s(Input);
 
@@ -62,6 +71,15 @@ void World::Maze() //This function represents a minigame for the player which he
 		else if ((strcmp("go west", Input) == EQUAL) || (strcmp("west", Input) == EQUAL) || (strcmp("go w", Input) == EQUAL) || (strcmp("w", Input) == EQUAL))
 		{
 			puts(Maze);
+			if ((strcmp("go north", Input) == EQUAL) || (strcmp("north", Input) == EQUAL) || (strcmp("go n", Input) == EQUAL) || (strcmp("n", Input) == EQUAL))
+			{
+				puts(Maze);
+				cont++;
+			}
+			else
+			{
+				puts(Maze);
+			}
 		}
 
 		//Various
