@@ -71,6 +71,9 @@ void World::Maze() //This function represents a minigame for the player which he
 		else if ((strcmp("go west", Input) == EQUAL) || (strcmp("west", Input) == EQUAL) || (strcmp("go w", Input) == EQUAL) || (strcmp("w", Input) == EQUAL))
 		{
 			puts(Maze);
+			printf("\n>");
+			gets_s(Input);
+
 			if ((strcmp("go north", Input) == EQUAL) || (strcmp("north", Input) == EQUAL) || (strcmp("go n", Input) == EQUAL) || (strcmp("n", Input) == EQUAL))
 			{
 				puts(Maze);
