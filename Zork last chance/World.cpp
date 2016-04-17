@@ -10,8 +10,8 @@
 World::World()
 {
 	Room1 = new Room[20]; //Room1 = Rooms
-	p1 = new Player; //p1 = Player
-	E1 = new Exit[20]; //E1 = Exits
+	player = new Player; //player = Player
+	Exit1 = new Exit[20]; //Exit1 = Exits
 	CashLeft = new Items; //Cash left in the map
 	CashInv = new Items; //Cash inventory
 }
@@ -143,7 +143,7 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	//Open / Close door inputs
 	else if ((strcmp("open door", Input) == EQUAL) || (strcmp("open d", Input) == EQUAL) || (strcmp("o d", Input) == EQUAL))
 	{
-		if (p1->posX == 1 || p1->posX == 2)
+		if (player->posX == 1 || player->posX == 2)
 		{
 			printf("Door is open\n");
 			openDoor = true;
@@ -155,12 +155,12 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	}
 	else if ((strcmp("close door", Input) == EQUAL) || (strcmp("close d", Input) == EQUAL) || (strcmp("c d", Input) == EQUAL))
 	{
-		if (p1->posX == 1 && openDoor == true)
+		if (player->posX == 1 && openDoor == true)
 		{
 			printf("You close the door\n");
 			openDoor = false;
 		}
-		else if (p1->posX == 2 && openDoor == true)
+		else if (player->posX == 2 && openDoor == true)
 		{
 			printf("You close the door\n");
 			openDoor = false;
@@ -170,7 +170,7 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	//Take / pick up inputs
 	else if ((strcmp("take cash", Input) == EQUAL) || (strcmp("pick up cash", Input) == EQUAL))
 	{
-		if ((p1->posX == 2) && CashLeft->Cash2 == 1)
+		if ((player->posX == 2) && CashLeft->Cash2 == 1)
 		{
 			CashImg.CashImage();
 			CashInv->CashX = 1;
@@ -185,13 +185,13 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 	{
 		printf("What item?\n\n>");
 		gets_s(Input);
-		if ((strcmp("cash", Input) == EQUAL) && p1->posX == 2 && (CashInv->CashX == 0 && CashLeft->Cash2 == 1))
+		if ((strcmp("cash", Input) == EQUAL) && player->posX == 2 && (CashInv->CashX == 0 && CashLeft->Cash2 == 1))
 		{
 			CashImg.CashImage();
 			CashInv->CashX = 1;
 			CashLeft->Cash2 = 0;
 		}
-		else if ((strcmp("cash", Input) == EQUAL) && p1->posX != 2 && CashLeft->Cash2 == 0)
+		else if ((strcmp("cash", Input) == EQUAL) && player->posX != 2 && CashLeft->Cash2 == 0)
 		{
 			printf("There is no cash to take");
 		}
@@ -227,8 +227,8 @@ void World::Input()// Here we recieve the Input from the player and execute his/
 World::~World()
 {
 	delete[] Room1;
-	delete p1;
-	delete[]E1;
+	delete player;
+	delete[]Exit1;
 	delete CashLeft;
 	delete CashInv;
 }

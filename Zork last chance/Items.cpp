@@ -2,7 +2,7 @@
 #include "Items.h"
 
 //Items
-void Items::CashImage()
+void Items::CashImage() const
 {
 	printf("You take some cash\n");
 	printf(R"EOF(

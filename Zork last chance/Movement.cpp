@@ -4,62 +4,62 @@
 //Movement functions
 void World::GoNorth()
 {
-	if (openDoor == true && p1->posX == 1)
+	if (openDoor == true && player->posX == 1)
 	{
-		p1->posX = 2;
+		player->posX = 2;
 		if (CashLeft->Cash2 == 1)
 		{
-			puts(Room1[p1->posX].name);
-			puts(Room1[p1->posX].desc);
+			puts(Room1[player->posX].name);
+			puts(Room1[player->posX].desc);
 		}
 		else
 		{
-			puts(Room1[p1->posX].name);
+			puts(Room1[player->posX].name);
 			printf("You are in a warehouse, in front of you there the table where you took the money");
 		}
 	}
-	else if (p1->posX == 4)
+	else if (player->posX == 4)
 	{
-		p1->posX = 3;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 3;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 6)
+	else if (player->posX == 6)
 	{
-		p1->posX = 12;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 12;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 12)
+	else if (player->posX == 12)
 	{
-		p1->posX = 11;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 11;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 11)
+	else if (player->posX == 11)
 	{
-		p1->posX = 10;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 10;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 10)
+	else if (player->posX == 10)
 	{
-		p1->posX = 1;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 1;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 7) //Maze
+	else if (player->posX == 7) //Maze
 	{
-		p1->posX = 13;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 13;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 13) //Maze Loop
+	else if (player->posX == 13) //Maze Loop
 	{
 		printf("You are still in the Maze\n");
 		Maze();
 	}
-	else if (p1->posX == 1 && openDoor == false)// If the door is closed
+	else if (player->posX == 1 && openDoor == false)// If the door is closed
 	{
 		printf("Door is closed\n");
 	}
@@ -71,54 +71,54 @@ void World::GoNorth()
 
 void World::GoSouth()
 {
-	if (p1->posX == 3)
+	if (player->posX == 3)
 	{
-		p1->posX = 4;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 4;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 1)
+	else if (player->posX == 1)
 	{
-		p1->posX = 10;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 10;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 10)
+	else if (player->posX == 10)
 	{
-		p1->posX = 11;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 11;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 11)
+	else if (player->posX == 11)
 	{
-		p1->posX = 12;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 12;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 12)
+	else if (player->posX == 12)
 	{
-		p1->posX = 6;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 6;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 7) //Maze
+	else if (player->posX == 7) //Maze
 	{
-		p1->posX = 13;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 13;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 13) //Maze Loop
+	else if (player->posX == 13) //Maze Loop
 	{
 		printf("You are still in the Maze\n");
 		Maze();
 	}
-	else if (p1->posX == 2 && openDoor == true)// If the door is open
+	else if (player->posX == 2 && openDoor == true)// If the door is open
 	{
-		p1->posX = 1;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 1;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 2 && openDoor == false)// If the door is closed
+	else if (player->posX == 2 && openDoor == false)// If the door is closed
 	{
 		printf("Door is closed\n");
 	}
@@ -130,55 +130,55 @@ void World::GoSouth()
 
 void World::GoEast()
 {
-	if (p1->posX == 0)
+	if (player->posX == 0)
 	{
-		p1->posX = 1;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 1;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 1)
+	else if (player->posX == 1)
 	{
-		p1->posX = 9;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 9;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 10)
+	else if (player->posX == 10)
 	{
-		p1->posX = 8;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 8;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 11)
+	else if (player->posX == 11)
 	{
-		p1->posX = 5;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 5;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 12)
+	else if (player->posX == 12)
 	{
-		p1->posX = 7;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 7;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 3)
+	else if (player->posX == 3)
 	{
-		p1->posX = 10;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 10;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 4)
+	else if (player->posX == 4)
 	{
-		p1->posX = 11;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 11;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 7) //Maze
+	else if (player->posX == 7) //Maze
 	{
-		p1->posX = 13;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 13;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 13) //Maze Loop
+	else if (player->posX == 13) //Maze Loop
 	{
 		printf("You are still in the Maze\n");
 		Maze();
@@ -191,54 +191,54 @@ void World::GoEast()
 
 void World::GoWest()
 {
-	if (p1->posX == 10)
+	if (player->posX == 10)
 	{
-		p1->posX = 3;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 3;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 1)
+	else if (player->posX == 1)
 	{
-		p1->posX = 0;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 0;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 9)
+	else if (player->posX == 9)
 	{
-		p1->posX = 1;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 1;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 8)
+	else if (player->posX == 8)
 	{
-		p1->posX = 10;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 10;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 5)
+	else if (player->posX == 5)
 	{
-		p1->posX = 11;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 11;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 7) //Maze
+	else if (player->posX == 7) //Maze
 	{
-		p1->posX = 13;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 13;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 13) //Maze Loop
+	else if (player->posX == 13) //Maze Loop
 	{
 		printf("You are still in the Maze\n");
 		Maze();
 	}
-	else if (p1->posX == 11 && BribeGuards == true) // If you have bribed the guards
+	else if (player->posX == 11 && BribeGuards == true) // If you have bribed the guards
 	{
-		p1->posX = 4;
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		player->posX = 4;
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
-	else if (p1->posX == 11 && BribeGuards == false) //If you don't have bribed the guards
+	else if (player->posX == 11 && BribeGuards == false) //If you don't have bribed the guards
 	{
 		printf("There are two guards blocking the entrance\n");
 	}

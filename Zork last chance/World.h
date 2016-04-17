@@ -9,11 +9,11 @@ public:
 
 	World(); //Constructor
 
-	Room* Room1; //Room name
-	Exit* E1; // Exits name
-	Player* p1; //Player name
-	Items* CashInv;//Cash you have in the inventory
-	Items* CashLeft;//Cash left in the map
+	Room* Room1 = nullptr; //Room name
+	Exit* Exit1 = nullptr; // Exits name
+	Player* player = nullptr; //Player name
+	Items* CashInv = nullptr;//Cash you have in the inventory
+	Items* CashLeft = nullptr;//Cash left in the map
 
 	void CreateWorld();
 	void Input(); //Read the input from the player
@@ -26,11 +26,11 @@ public:
 	void GoWest();
 
 	//Look functions
-	void Look();
-	void LookNorth();
-	void LookSouth();
-	void LookWest();
-	void LookEast();
+	void Look() const;
+	void LookNorth() const;
+	void LookSouth() const;
+	void LookWest() const;
+	void LookEast() const;
 
 	//Open/close door functions
 	void closeDoor();

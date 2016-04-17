@@ -1,5 +1,5 @@
 class Welcome
 {
 public:
-	void WelcomeScreen();//Welcome screen image
+	void WelcomeScreen() const;//Welcome screen image
 };

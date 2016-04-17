@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Welcome Screen.h"
 
-void Welcome::WelcomeScreen() // Welcome screen image
+void Welcome::WelcomeScreen() const // Welcome screen image
 {
 printf(R"EOF( COWARD CITY
                   ________            _______

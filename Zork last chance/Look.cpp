@@ -2,60 +2,60 @@
 #include "World.h"
 
 //Look functions
-void World::Look()
+void World::Look() const
 {
-	if (p1->posX == 2 && CashLeft->Cash2 == 0)
+	if (player->posX == 2 && CashLeft->Cash2 == 0)
 	{
-		puts(Room1[p1->posX].name);
+		puts(Room1[player->posX].name);
 		printf("You are in a warehouse, in front of you there the table where you took the money");
 	}
 	else
 	{
-		puts(Room1[p1->posX].name);
-		puts(Room1[p1->posX].desc);
+		puts(Room1[player->posX].name);
+		puts(Room1[player->posX].desc);
 	}
 }
 
-void World::LookNorth()
+void World::LookNorth() const
 {
 	for (int j = 0; j < 13; j++)
 	{
-		if (p1->posX == j)
+		if (player->posX == j)
 		{
-			puts(E1[p1->posX].desN);
+			puts(Exit1[player->posX].desN);
 		}
 	}
 }
 
-void World::LookSouth()
+void World::LookSouth() const
 {
 	for (int j = 0; j < 13; j++)
 	{
-		if (p1->posX == j)
+		if (player->posX == j)
 		{
-			puts(E1[p1->posX].desS);
+			puts(Exit1[player->posX].desS);
 		}
 	}
 }
 
-void World::LookEast()
+void World::LookEast() const
 {
 	for (int j = 0; j < 13; j++)
 	{
-		if (p1->posX == j)
+		if (player->posX == j)
 		{
-			puts(E1[p1->posX].desE);
+			puts(Exit1[player->posX].desE);
 		}
 	}
 }
 
-void World::LookWest()
+void World::LookWest() const
 {
 	for (int j = 0; j < 13; j++)
 	{
-		if (p1->posX == j)
+		if (player->posX == j)
 		{
-			puts(E1[p1->posX].desW);
+			puts(Exit1[player->posX].desW);
 		}
 	}
 }
