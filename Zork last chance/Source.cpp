@@ -1,8 +1,9 @@
 #include <iostream>
 #include <stdio.h>
-#include <string>
 #include <conio.h>
 #include "World.h"
+#include "String.h"
+#include "Vector.h"
 #include "Welcome Screen.h"
 #include <cstdlib>//Necessary for system("MODE CON COLS=100 LINES=60")
 
@@ -10,7 +11,10 @@ int main()
 {
 	World scenary;
 	Welcome screen;
-	
+	MyString input;
+
+	char Input[30];
+
 	system("MODE CON COLS=100 LINES=55");//I used this command so the whole image fit into the screen
 	scenary.CreateWorld();
 	scenary.Exits();
@@ -28,7 +32,9 @@ int main()
 	while (1)
 	{
 		printf("\n>");
-		scenary.Input();
+		gets_s(Input);
+		input = Input;
+		scenary.GetInput(input);
 	}
 
 	system("pause");

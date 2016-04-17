@@ -2,6 +2,8 @@
 #include"Player.h"
 #include"Exits.h"
 #include"Items.h"
+#include"Vector.h"
+#include"String.h"
 
 class World
 {
@@ -17,6 +19,7 @@ public:
 
 	void CreateWorld();
 	void Input(); //Read the input from the player
+	void GetInput(MyString&input);
 	void Exits() const;
 
 	//Move functions
