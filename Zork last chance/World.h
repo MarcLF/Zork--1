@@ -11,11 +11,12 @@ public:
 
 	World(); //Constructor
 
-	Room* Room1 = nullptr; //Room name
 	Exit* Exit1 = nullptr; // Exits name
 	Player* player = nullptr; //Player name
 	Items* CashInv = nullptr;//Cash you have in the inventory
 	Items* CashLeft = nullptr;//Cash left in the map
+
+	Vector<Room*>Room1;//Rooms
 
 	void CreateWorld();
 	void Input(); //Read the input from the player

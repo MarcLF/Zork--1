@@ -26,13 +26,14 @@ int main()
 	system("cls");
 
 	printf("--Welcome to Zork: Last Chance--\n\n");
-	puts(scenary.Room1[0].name);
-	puts(scenary.Room1[0].desc);
+	printf("%s", scenary.Room1[0]->name);
+	printf("%s", scenary.Room1[0]->desc);
 
 	while (1)
 	{
 		printf("\n>");
 		gets_s(Input);
+		printf("\n");
 		input = Input;
 		scenary.GetInput(input);
 	}

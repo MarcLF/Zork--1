@@ -1,5 +1,9 @@
-class Room
+#include "Entity.h"
+#include "String.h"
+
+class Room: public Entity
 {
 public:
-	char name[20], desc[200];//Name of the room and description
+	Room(const char* name, const char* description);
+
 };
