@@ -1,8 +1,7 @@
-#ifndef _MYSTRING_
-#define _MYSTRING_
+#ifndef _MyString_
+#define _MyString_
 
 #include<string.h>
-#include<stdio.h>
 #include"Vector.h"
 
 typedef unsigned int uint;

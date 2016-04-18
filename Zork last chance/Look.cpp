@@ -22,7 +22,7 @@ void World::LookNorth() const
 	{
 		if (player->posX == j)
 		{
-			puts(Exit1[player->posX].desN);
+			printf("%s", Exit1[player->posX]->desN);
 		}
 	}
 }
@@ -33,7 +33,7 @@ void World::LookSouth() const
 	{
 		if (player->posX == j)
 		{
-			puts(Exit1[player->posX].desS);
+			printf("%s", Exit1[player->posX]->desS);
 		}
 	}
 }
@@ -44,7 +44,7 @@ void World::LookEast() const
 	{
 		if (player->posX == j)
 		{
-			puts(Exit1[player->posX].desE);
+			printf("%s", Exit1[player->posX]->desE);
 		}
 	}
 }
@@ -55,7 +55,7 @@ void World::LookWest() const
 	{
 		if (player->posX == j)
 		{
-			puts(Exit1[player->posX].desW);
+			printf("%s", Exit1[player->posX]->desW);
 		}
 	}
 }

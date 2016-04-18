@@ -4,7 +4,7 @@
 //Movement functions
 void World::GoNorth()
 {
-	if (openDoor == true && player->posX == 1)
+	if (openDoor == true && player->posX == 1) //Road to Warehouse
 	{
 		player->posX = 2;
 		if (CashLeft->Cash2 == 1)
@@ -18,37 +18,37 @@ void World::GoNorth()
 			printf("You are in a warehouse, in front of you there the table where you took the money");
 		}
 	}
-	else if (player->posX == 4)
+	else if (player->posX == 4) //Purifying plant to Sewers
 	{
 		player->posX = 3;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 6)
+	else if (player->posX == 6) //Frost house to Road 4
 	{
 		player->posX = 12;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 12)
+	else if (player->posX == 12) //Road 4 to Road 3
 	{
 		player->posX = 11;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 11)
+	else if (player->posX == 11) //Road 3 to Road 2
 	{
 		player->posX = 10;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 10)
+	else if (player->posX == 10) //Road 2 to Road
 	{
 		player->posX = 1;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 7) //Maze
+	else if (player->posX == 7) //Maze to Inside the Maze
 	{
 		player->posX = 13;
 		printf("%s", Room1[player->posX]->name);
@@ -71,37 +71,37 @@ void World::GoNorth()
 
 void World::GoSouth()
 {
-	if (player->posX == 3)
+	if (player->posX == 3) //Sewers to Purifying plant
 	{
 		player->posX = 4;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 1)
+	else if (player->posX == 1) //Road to Road 2
 	{
 		player->posX = 10;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 10)
+	else if (player->posX == 10) //Road 2 to Road 3
 	{
 		player->posX = 11;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 11)
+	else if (player->posX == 11) //Road 3 to Road 4
 	{
 		player->posX = 12;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 12)
+	else if (player->posX == 12) //Road 4 to Frost house
 	{
 		player->posX = 6;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 7) //Maze
+	else if (player->posX == 7) //Maze to Inside the Maze
 	{
 		player->posX = 13;
 		printf("%s", Room1[player->posX]->name);
@@ -112,13 +112,13 @@ void World::GoSouth()
 		printf("You are still in the Maze\n");
 		Maze();
 	}
-	else if (player->posX == 2 && openDoor == true)// If the door is open
+	else if (player->posX == 2 && openDoor == true)//If the door is open
 	{
 		player->posX = 1;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 2 && openDoor == false)// If the door is closed
+	else if (player->posX == 2 && openDoor == false) //If the door is closed
 	{
 		printf("Door is closed\n");
 	}
@@ -130,49 +130,49 @@ void World::GoSouth()
 
 void World::GoEast()
 {
-	if (player->posX == 0)
+	if (player->posX == 0) //Start to Road
 	{
 		player->posX = 1;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 1)
+	else if (player->posX == 1) //Road to Mansion
 	{
 		player->posX = 9;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 10)
+	else if (player->posX == 10) //Road 2 to jail
 	{
 		player->posX = 8;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 11)
+	else if (player->posX == 11) //Road 3 to Gym
 	{
 		player->posX = 5;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 12)
+	else if (player->posX == 12) //Road 4 to Maze
 	{
 		player->posX = 7;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 3)
+	else if (player->posX == 3) //Sewers to Road 2
 	{
 		player->posX = 10;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 4)
+	else if (player->posX == 4) //Purifying Plant to Road 3
 	{
 		player->posX = 11;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 7) //Maze
+	else if (player->posX == 7) //Maze to Inside the Maze
 	{
 		player->posX = 13;
 		printf("%s", Room1[player->posX]->name);
@@ -191,37 +191,37 @@ void World::GoEast()
 
 void World::GoWest()
 {
-	if (player->posX == 10)
+	if (player->posX == 10) //Road 2 to Sewers
 	{
 		player->posX = 3;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 1)
+	else if (player->posX == 1) //Road to Start
 	{
 		player->posX = 0;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 9)
+	else if (player->posX == 9) //Old Mansion to Road
 	{
 		player->posX = 1;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 8)
+	else if (player->posX == 8) //Jail to Road 2
 	{
 		player->posX = 10;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 5)
+	else if (player->posX == 5) //Gym to Road 3
 	{
 		player->posX = 11;
 		printf("%s", Room1[player->posX]->name);
 		printf("%s", Room1[player->posX]->desc);
 	}
-	else if (player->posX == 7) //Maze
+	else if (player->posX == 7) //Maze to Inside the Maze
 	{
 		player->posX = 13;
 		printf("%s", Room1[player->posX]->name);

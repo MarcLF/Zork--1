@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Items.h"
 
+//Items::Items(const char* name, const char* description): Entity(name, description){}
+
 //Items
 void Items::CashImage() const
 {

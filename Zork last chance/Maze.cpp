@@ -1,10 +1,9 @@
 #include <iostream>
 #include "World.h"
 
-#define EQUAL 0
-
 void World::Maze() //This function represents a minigame for the player which he will be trapped in the maze until he finds the exit
 {
+	MyString input;
 	int cont = 0;
 	char Maze[30] = "You are still in the Maze";
 	char Input[30];
@@ -13,15 +12,16 @@ void World::Maze() //This function represents a minigame for the player which he
 	{
 		printf("\n>");
 		gets_s(Input);
+		input = Input;
 
 		//Movement inputs
-		if ((strcmp("go north", Input) == EQUAL) || (strcmp("north", Input) == EQUAL) || (strcmp("go n", Input) == EQUAL) || (strcmp("n", Input) == EQUAL))
+		if (input == "go north" || input == "north" || input == "go n" || input == "n")
 		{
 			puts(Maze);
 			printf("\n>");
 			gets_s(Input);
 
-			if ((strcmp("go west", Input) == EQUAL) || (strcmp("west", Input) == EQUAL) || (strcmp("go w", Input) == EQUAL) || (strcmp("w", Input) == EQUAL))
+			if(input == "go west" || input == "west" || input == "go w" || input == "w")
 			{
 				puts(Maze);
 				cont++;
@@ -31,34 +31,18 @@ void World::Maze() //This function represents a minigame for the player which he
 				puts(Maze);
 			}
 		}
-		else if ((strcmp("go south", Input) == EQUAL) || (strcmp("south", Input) == EQUAL) || (strcmp("go s", Input) == EQUAL) || (strcmp("s", Input) == EQUAL))
+		else if (input == "go south" || input == "south" || input == "go s" || input == "s")
 		{
 			puts(Maze);
 			printf("\n>");
 			gets_s(Input);
 
-			if ((strcmp("go east", Input) == EQUAL) || (strcmp("east", Input) == EQUAL) || (strcmp("go e", Input) == EQUAL) || (strcmp("east", Input) == EQUAL))
+			if (input == "go east" || input == "east" || input == "go e" || input == "e")
 			{
 				puts(Maze);
 				cont++;
 			}
-			else if ((strcmp("go west", Input) == EQUAL) || (strcmp("west", Input) == EQUAL) || (strcmp("go w", Input) == EQUAL) || (strcmp("west", Input) == EQUAL))
-			{
-				puts(Maze);
-				cont++;
-			}
-			else
-			{
-				puts(Maze);
-			}
-		}
-		else if ((strcmp("go east", Input) == EQUAL) || (strcmp("east", Input) == EQUAL) || (strcmp("go e", Input) == EQUAL) || (strcmp("e", Input) == EQUAL))
-		{
-			puts(Maze);
-			printf("\n>");
-			gets_s(Input);
-
-			if ((strcmp("go north", Input) == EQUAL) || (strcmp("north", Input) == EQUAL) || (strcmp("go north", Input) == EQUAL) || (strcmp("n", Input) == EQUAL))
+			else if (input == "go west" || input == "west" || input == "go w" || input == "w")
 			{
 				puts(Maze);
 				cont++;
@@ -68,13 +52,29 @@ void World::Maze() //This function represents a minigame for the player which he
 				puts(Maze);
 			}
 		}
-		else if ((strcmp("go west", Input) == EQUAL) || (strcmp("west", Input) == EQUAL) || (strcmp("go w", Input) == EQUAL) || (strcmp("w", Input) == EQUAL))
+		else if(input == "go east" || input == "east" || input == "go e" || input == "e")
 		{
 			puts(Maze);
 			printf("\n>");
 			gets_s(Input);
 
-			if ((strcmp("go north", Input) == EQUAL) || (strcmp("north", Input) == EQUAL) || (strcmp("go n", Input) == EQUAL) || (strcmp("n", Input) == EQUAL))
+			if (input == "go north" || input == "north" || input == "go n" || input == "n")
+			{
+				puts(Maze);
+				cont++;
+			}
+			else
+			{
+				puts(Maze);
+			}
+		}
+		else if (input == "go west" || input == "west" || input == "go w" || input == "w")
+		{
+			puts(Maze);
+			printf("\n>");
+			gets_s(Input);
+
+			if (input == "go north" || input == "north" || input == "go n" || input == "n")
 			{
 				puts(Maze);
 				cont++;
@@ -86,7 +86,7 @@ void World::Maze() //This function represents a minigame for the player which he
 		}
 
 		//Various
-		else if (strcmp("exit", Input) == EQUAL || strcmp("quit", Input) == EQUAL)//strcmp returns 0 if both strings are the same
+		else if (input == "exit")
 		{
 			exit(0);
 		}

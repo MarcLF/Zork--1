@@ -10,7 +10,7 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 	char Input2[30];
 
 	//Various
-	if (input == "exit")//strcmp returns 0 if both strings are the same
+	if (input == "exit" || input == "quit")
 	{
 		exit(0);
 	}

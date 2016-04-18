@@ -82,6 +82,7 @@
     <ClCompile Include="Look.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Movement.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="String.cpp" />

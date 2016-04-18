@@ -1,6 +1,16 @@
+#ifndef _Exits_
+#define _Exits_
+
+#include "String.h"
+
 class Exit
 {
 public:
-	char desN[200], desS[200], desE[200], desW[200];
+	MyString desN, desS, desE, desW;
+
+	Exit(const char* desN, const char* desS, const char* desE, const char* desW);
+
 	int lockedDoor = 1;
 };
+
+#endif 

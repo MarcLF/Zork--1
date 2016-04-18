@@ -1,3 +1,6 @@
+#ifndef _World_
+#define _World_
+
 #include"Room.h"
 #include"Player.h"
 #include"Exits.h"
@@ -11,17 +14,17 @@ public:
 
 	World(); //Constructor
 
-	Exit* Exit1 = nullptr; // Exits name
 	Player* player = nullptr; //Player name
 	Items* CashInv = nullptr;//Cash you have in the inventory
 	Items* CashLeft = nullptr;//Cash left in the map
 
 	Vector<Room*>Room1;//Rooms
+	Vector<Exit*>Exit1;//Exits
 
 	void CreateWorld();
 	void Input(); //Read the input from the player
 	void GetInput(MyString&input);
-	void Exits() const;
+	void Exits();
 
 	//Move functions
 	void GoNorth();
@@ -46,3 +49,5 @@ public:
 
 	~World(); //Destructor
 };
+
+#endif

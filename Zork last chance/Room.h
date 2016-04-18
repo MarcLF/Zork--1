@@ -1,3 +1,6 @@
+#ifndef _Room_
+#define _Room_
+
 #include "Entity.h"
 #include "String.h"
 
@@ -7,3 +10,5 @@ public:
 	Room(const char* name, const char* description);
 
 };
+
+#endif

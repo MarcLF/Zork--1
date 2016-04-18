@@ -1,5 +1,5 @@
-#ifndef _ENTITY_ 
-#define _ENTITY_
+#ifndef _Entity_ 
+#define _Entity_
 
 #include"String.h"
 
@@ -9,12 +9,10 @@ public:
 
 	MyString name;
 	MyString desc;
+
 	Entity(const char* name, const char* desc);
 	
 	virtual void Look() const{};
-
 };
-
-
 
 #endif
