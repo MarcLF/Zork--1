@@ -1,28 +1,10 @@
-#include <iostream>
 #include "Items.h"
 
-//Items::Items(const char* name, const char* description): Entity(name, description){}
-
-//Items
-void Items::CashImage() const
+Item::Item(const char* name, const char* description, Room* room) : Entity(name, description), place(room)
 {
-	printf("You take some cash\n");
-	printf(R"EOF(
-||====================================================================||
-||//$\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//$\\||
-||(100)==================| RESERVE BANK OF INDIA|================(100)||
-||\\$//        ~         '------========--------'                \\$//||
-||<< /        /$\              // ____ \\                         \ >>||
-||>>|        //L\\            // ///..) \\              XXXX       |<<||
-||<<|        \\ //           || <||  >\  ||                        |>>||
-||>>|         \$/            ||  $$ --/  ||          XXXXXXXXX     |<<||
-||<<|     Free to Use        *\\  |\_/  //*                        |>>||
-||>>|                         *\\/___\_//*                         |<<||
-||<<\      Rating: E     _____/ M GANDHI \________    XX XXXXX     />>||
-||//$\                 ~|    REPUBLIC OF INDIA   |~               /$\\||
-||(100)===================   ONE HUNDRED RUPEES =================(100)||
-||\\$//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\$//||
-||====================================================================||
-)EOF");
+}
+
+Item::~Item()
+{
 }
 

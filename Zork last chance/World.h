@@ -1,30 +1,29 @@
 #ifndef _World_
 #define _World_
 
+#include"Vector.h"
+#include"String.h"
+#include"Entity.h"
 #include"Room.h"
 #include"Player.h"
 #include"Exits.h"
 #include"Items.h"
-#include"Vector.h"
-#include"String.h"
 
 class World
 {
 public:
-
 	World(); //Constructor
 
 	Player* player = nullptr; //Player name
-	Items* CashInv = nullptr;//Cash you have in the inventory
-	Items* CashLeft = nullptr;//Cash left in the map
 
-	Vector<Room*>Room1;//Rooms
-	Vector<Exit*>Exit1;//Exits
+	Vector<Room*> Room1;//Rooms
+	Vector<Exit*> Exit1;//Exits
+	Vector<Item*> Item1;//Items
 
 	void CreateWorld();
-	void Input(); //Read the input from the player
 	void GetInput(MyString&input);
 	void Exits();
+	void Items();
 
 	//Move functions
 	void GoNorth();
@@ -46,6 +45,9 @@ public:
 	//Other actions
 	bool BribeGuards = false;
 	void Maze(); //When the player enters the room Inside the Maze it will automatically call this function
+
+	//Cash image
+	void CashImage() const;
 
 	~World(); //Destructor
 };

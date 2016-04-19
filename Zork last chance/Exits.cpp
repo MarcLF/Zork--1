@@ -6,3 +6,7 @@ Exit::Exit(const char* desN, const char* desS, const char* desE, const char* des
 {
 }
 
+Exit::~Exit()
+{
+}
+

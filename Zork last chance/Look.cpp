@@ -4,7 +4,7 @@
 //Look functions
 void World::Look() const
 {
-	if (player->posX == 2 && CashLeft->Cash2 == 0)
+	if (player->posX == 2 && Item1[0]->taken == true)
 	{
 		printf("%s", Room1[player->posX]->name);
 		printf("You are in a warehouse, in front of you there the table where you took the money");
@@ -12,7 +12,7 @@ void World::Look() const
 	else
 	{
 		printf("%s", Room1[player->posX]->name);
-		printf("%s", Room1[player->posX]->desc);
+		printf("%s", Room1[player->posX]->description);
 	}
 }
 

@@ -8,12 +8,12 @@
 World::World()
 {
 	player = new Player; //player = Player
-	CashLeft = new Items; //Cash left in the map
-	CashInv = new Items; //Cash inventory
 }
 
 void World::CreateWorld()
 {
+	/* Rooms */
+
 	//Start
 	Room1.push_back(new Room("Start\n", "You see a big sign which says WELCOME to the COWARD CITY!Where all cowards come to hide from the rest of the world!\n"));
 	//Road
@@ -42,11 +42,9 @@ void World::CreateWorld()
 	Room1.push_back(new Room("Road\n", "This is the end of the road, in front of you shows up a small building with a strange frost door.\n"));
 	//Inside the Maze
 	Room1.push_back(new Room("Inside the Maze\n", "Suddenly you find yourself lost deep into the maze.\n"));
-}
 
+	/* Exits */
 
-void World::Exits() //Here we are giving every exit a description
-{
 	//Start
 	Exit1.push_back(new Exit("There is nothing relevant into that direction", "There is nothing relevant into that direction", "You see a small path which seems to lead into the town", "There is nothing relevant into that direction"));
 	//Road
@@ -73,13 +71,25 @@ void World::Exits() //Here we are giving every exit a description
 	Exit1.push_back(new Exit("The path continues", "The path continues", "There is a door which leads to the gym", "There is a door which leads to the purifying plant"));
 	//Road 4
 	Exit1.push_back(new Exit("The path continues", "There is an icy door", "You see the entrance of a maze", "There is nothing relevant into that direction"));
+
+	/* Items */
+
+	//Cash
+	Item1.push_back(new Item("Cash", "A hundred bucks", Room1[2]));
+	//Key
+	Item1.push_back(new Item("Key", "An old rusty key", Room1[13]));
+	//Gloves
+	Item1.push_back(new Item("Mail Gloves", "A Heavy rough pair of mail guantlets", Room1[4]));
 }
 
+
+void World::Exits() //Here we are giving every exit a descriptionription
+{
+	
+}
 
 //destructor
 World::~World()
 {
 	delete player;
-	delete CashLeft;
-	delete CashInv;
 }

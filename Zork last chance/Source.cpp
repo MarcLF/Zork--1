@@ -5,6 +5,7 @@
 #include "String.h"
 #include "Vector.h"
 #include "Welcome Screen.h"
+#include "MemoryLeaks.h"
 #include <cstdlib>//Necessary for system("MODE CON COLS=100 LINES=60")
 
 int main()
@@ -27,7 +28,7 @@ int main()
 
 	printf("--Welcome to Zork: Last Chance--\n\n");
 	printf("%s", scenary.Room1[0]->name);
-	printf("%s", scenary.Room1[0]->desc);
+	printf("%s", scenary.Room1[0]->description);
 
 	while (1)
 	{

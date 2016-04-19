@@ -1,5 +1,9 @@
 #include"Entity.h"
 
-Entity::Entity(const char* name, const char *desc) :name(name), desc(desc)
+Entity::Entity(const char* name, const char *description) :name(name), description(description)
+{
+}
+
+Entity::~Entity()
 {
 }

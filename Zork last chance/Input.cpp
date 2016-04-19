@@ -4,7 +4,6 @@
 
 void World::GetInput(MyString&input)// Here we recieve the Input from the player and execute his/her order
 {
-	Items CashImg;//Cash image
 	MyString input2;
 
 	char Input2[30];
@@ -54,19 +53,19 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 		gets_s(Input2);
 		input2 = Input2;
 
-		if (input == "north")
+		if (input2 == "north")
 		{
 			GoNorth();
 		}
-		else if (input == "south")
+		else if (input2 == "south")
 		{
 			GoSouth();
 		}
-		else if (input == "east")
+		else if (input2 == "east")
 		{
 			GoEast();
 		}
-		else if (input == "west")
+		else if (input2 == "west")
 		{
 			GoWest();
 		}
@@ -97,7 +96,7 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 	//Open / Close door inputs
 	else if (input == "open door")
 	{
-		if (player->posX == 1 || player->posX == 2)
+		if ((player->posX == 1 || player->posX == 2) && Item1[1]->taken == true)
 		{
 			printf("Door is open\n");
 			openDoor = true;
@@ -109,26 +108,24 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 	}
 	else if (input == "close door")
 	{
-		if (player->posX == 1 && openDoor == true)
+		if ((player->posX == 1 || player->posX == 2) && openDoor == true)
 		{
 			printf("You close the door\n");
 			openDoor = false;
 		}
-		else if (player->posX == 2 && openDoor == true)
+		else 
 		{
-			printf("You close the door\n");
-			openDoor = false;
+			printf("There is no door to be closed\n");
 		}
 	}
 
 	//Take / pick up inputs
 	else if (input == "take cash")
 	{
-		if ((player->posX == 2) && CashLeft->Cash2 == 1)
+		if (player->posX == 2 && Item1[0]->taken == false)
 		{
-			CashImg.CashImage();
-			CashInv->CashX = 1;
-			CashLeft->Cash2 = 0;
+			CashImage();
+			Item1[0]->taken = true;
 		}
 		else
 		{
@@ -140,15 +137,16 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 		printf("What item?\n\n>");
 		gets_s(Input2);
 		input2 = Input2;
-		if (input == "cash" && player->posX == 2 && (CashInv->CashX == 0 && CashLeft->Cash2 == 1))
+
+		if (input2 == "cash" && player->posX == 2 && Item1[0]->taken == false)
 		{
-			CashImg.CashImage();
-			CashInv->CashX = 1;
-			CashLeft->Cash2 = 0;
+			CashImage();
+			Item1[0]->taken = true;
+
 		}
-		else if (input == "cash" && player->posX != 2 && CashLeft->Cash2 == 0)
+		else if (input2 == "cash" && Item1[0]->taken == true)
 		{
-			printf("There is no cash to take");
+			printf("There is no %s to take\n", input2);
 		}
 		else
 		{
@@ -159,13 +157,12 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 	//Actions inputs
 	else if (input == "bribe guards")
 	{
-		if (CashInv->CashX == 1 && CashLeft->Cash2 == 0)
+		if (Item1[0]->taken == true)
 		{
-			CashInv->CashX = 0;
 			printf("Both guards look at each other and after a few seconds take the money and left the entrance\n");
 			BribeGuards = true;
 		}
-		else if (player->posX != 13)
+		if (player->posX != 12)
 		{
 			printf("What guards?");
 		}

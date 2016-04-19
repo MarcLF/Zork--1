@@ -14,14 +14,63 @@ void World::Maze() //This function represents a minigame for the player which he
 		gets_s(Input);
 		input = Input;
 
-		//Movement inputs
+		if (cont == 2)
+		{
+			cont++;
+			printf("After a couple hours walking in circles you find yourself in a small glade, standing in the middle you see an old rusty key.");
+			printf("\n>");
+			gets_s(Input);
+			input = Input;
+
+			if (input == "take key")
+			{
+				if (Item1[1]->taken == false)
+				{
+					printf("You take the key");
+					Item1[1]->taken = true;
+				}
+				else
+				{
+					printf("There is no key to take\n");
+				}
+			}
+			else if (input == "take")
+			{
+				printf("What item?\n\n>");
+				gets_s(Input);
+				input = Input;
+
+				if (input == "take" && Item1[1]->taken == false)
+				{
+					printf("You take the key");
+					Item1[1]->taken = true;
+
+				}
+				else if (input == "key" && Item1[1]->taken == true)
+				{
+					printf("There is no %s to take\n", Input);
+				}
+				else if (input == "exit")
+				{
+					exit(0);
+				}
+				else
+				{
+					printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
+				}
+			}
+		}
+		else
+		{
+			//Movement inputs
 		if (input == "go north" || input == "north" || input == "go n" || input == "n")
 		{
 			puts(Maze);
 			printf("\n>");
 			gets_s(Input);
+			input = Input;
 
-			if(input == "go west" || input == "west" || input == "go w" || input == "w")
+			if (input == "go west" || input == "west" || input == "go w" || input == "w")
 			{
 				puts(Maze);
 				cont++;
@@ -36,6 +85,7 @@ void World::Maze() //This function represents a minigame for the player which he
 			puts(Maze);
 			printf("\n>");
 			gets_s(Input);
+			input = Input;
 
 			if (input == "go east" || input == "east" || input == "go e" || input == "e")
 			{
@@ -52,11 +102,12 @@ void World::Maze() //This function represents a minigame for the player which he
 				puts(Maze);
 			}
 		}
-		else if(input == "go east" || input == "east" || input == "go e" || input == "e")
+		else if (input == "go east" || input == "east" || input == "go e" || input == "e")
 		{
 			puts(Maze);
 			printf("\n>");
 			gets_s(Input);
+			input = Input;
 
 			if (input == "go north" || input == "north" || input == "go n" || input == "n")
 			{
@@ -73,6 +124,7 @@ void World::Maze() //This function represents a minigame for the player which he
 			puts(Maze);
 			printf("\n>");
 			gets_s(Input);
+			input = Input;
 
 			if (input == "go north" || input == "north" || input == "go n" || input == "n")
 			{
@@ -90,11 +142,12 @@ void World::Maze() //This function represents a minigame for the player which he
 		{
 			exit(0);
 		}
+		}
 	}
 
 	printf("\nFINALLY after so much effort you get to find the exit of this goddanm Maze.\n\n");
 
 	player->posX = 12; //It redirects the player back into the road
 	printf("%s", Room1[player->posX]->name);
-	printf("%s", Room1[player->posX]->desc);
+	printf("%s", Room1[player->posX]->description);
 }

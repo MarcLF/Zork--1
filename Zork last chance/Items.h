@@ -1,14 +1,18 @@
-#ifndef _Items_
-#define _Items_
+#ifndef _Item_
+#define _Item_
 
-class Items
+#include "Entity.h"
+#include "Room.h"
+
+class Item: public Entity
 {
 public:
-	//Items(const char* name, const char* desc);
+	Room* place;
 
-	void CashImage() const ;//Cash image
-	int CashX = 0;//Cash in the inventory
-	int Cash2 = 1;//Cash left in the map
+	bool taken = false;
+
+	Item(const char*, const char*, Room* room);
+	~Item();
 };
 
 #endif

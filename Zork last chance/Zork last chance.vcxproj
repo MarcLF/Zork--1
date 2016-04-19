@@ -67,6 +67,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Exits.h" />
     <ClInclude Include="Items.h" />
+    <ClInclude Include="MemoryLeaks.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="String.h" />
@@ -82,6 +83,7 @@
     <ClCompile Include="Look.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Movement.cpp" />
+    <ClCompile Include="Pictures.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Source.cpp" />

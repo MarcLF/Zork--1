@@ -6,13 +6,11 @@
 class Entity
 {
 public:
-
 	MyString name;
-	MyString desc;
+	MyString description;
 
-	Entity(const char* name, const char* desc);
-	
-	virtual void Look() const{};
+	Entity(const char* name, const char* description);
+	~Entity();
 };
 
 #endif

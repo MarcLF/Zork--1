@@ -11,7 +11,7 @@ class Vector
 private:
 
 	TYPE *vector = nullptr;
-	uint max_size = 2;
+	uint max_size = 5;
 	uint n_elements = 0;
 
 public:
@@ -44,14 +44,14 @@ public:
 			max_size += 5;
 			temp = new TYPE[max_size];
 
-			for (int i = 0; i < n_elements; i++)
+			for (uint i = 0; i < n_elements; i++)
 			{
 				temp[i] = vector[i];
 			}
 			delete[] vector;
 			vector = temp;
 		}
-		vector[n_elements++] = element;
+		*(vector + n_elements++) = element;
 	}
 
 	void push_front(const TYPE &element)
@@ -90,7 +90,6 @@ public:
 		assert(index >= 0 && index < n_elements);
 		return vector[index];
 	}
-
 
 	TYPE &operator[](uint index)
 	{
