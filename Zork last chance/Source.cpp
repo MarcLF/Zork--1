@@ -18,7 +18,6 @@ int main()
 
 	system("MODE CON COLS=100 LINES=55");//I used this command so the whole image fit into the screen
 	scenary.CreateWorld();
-	scenary.Exits();
 
 	screen.WelcomeScreen();//Welcome screen image
 

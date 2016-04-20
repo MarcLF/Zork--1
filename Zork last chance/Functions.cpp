@@ -21,7 +21,7 @@ void World::DropObject(MyString&input)
 		{
 			printf("You drop %s \n", input);
 			Item1[i]->taken = false;
-			Item1[i]->place = Room1[player->posX];
+			Item1[i]->place = player->Pos;
 		}
 	}
 }

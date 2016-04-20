@@ -2,13 +2,23 @@
 #define _Exits_
 
 #include "Entity.h"
+#include "Room.h"
 
-class Exit
+enum direction{ north, south, east, west, up, down };
+
+class Exit: public Entity
 {
 public:
-	MyString desN, desS, desE, desW;
+	MyString description2;
 
-	Exit(const char* desN, const char* desS, const char* desE, const char* desW);
+	Room* origin;
+	Room* destination;
+
+	bool door;
+
+	direction direction1;
+
+	Exit(const char* name, const char* description, Room*, Room*, bool, direction);
 	~Exit();
 
 	int lockedDoor = 1;

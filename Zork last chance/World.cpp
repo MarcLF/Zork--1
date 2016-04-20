@@ -14,63 +14,67 @@ void World::CreateWorld()
 {
 	/* Rooms */
 
-	//Start
+	//Start 0
 	Room1.push_back(new Room("Start\n", "You see a big sign which says WELCOME to the COWARD CITY!Where all cowards come to hide from the rest of the world!\n"));
-	//Road
+	//Road 1
 	Room1.push_back(new Room("Road\n", "You find yourself in the middle of a dirty old road.\n"));
-	//Warehouse
+	//Warehouse 2
 	Room1.push_back(new Room("Warehouse\n", "You are in a warehouse, in front of you there is a table with a few bills.\n"));
-	//Sewers
+	//Sewers 3
 	Room1.push_back(new Room("Sewers\n", "This place stinks! I guess that's because this are the sewers.\n"));
-	//Purifying Plant
+	//Purifying Plant 4
 	Room1.push_back(new Room("Purifying Plant\n", "You are in a purifying plant.\n"));
-	//Gym
+	//Gym 5
 	Room1.push_back(new Room("Gym\n", "An old gym with a small boxing ring in the middle.\n"));
-	//Frost House
+	//Frost House 6
 	Room1.push_back(new Room("Frost House\n", "If you were wondering why the main door was frost as hell now you know the reason, this house is a freezer!\n"));
-	//Maze
+	//Maze 7
 	Room1.push_back(new Room("Maze\n", "What first seemed like a garden it looks now like an immense maze. Becare where you go or you might get lost.\n"));
-	//Jail
+	//Jail 8
 	Room1.push_back(new Room("Jail\n", "It seems this building was a jail once, now its nothing but some old empty cells.\n"));
-	//Old Manions
+	//Old Mansion 9
 	Room1.push_back(new Room("Old Mansion\n", "After going across that ugly golden door, you find yourself in the living room of a dusty big old mansion.\n"));
-	//Road 2
+	//Road 2 10
 	Room1.push_back(new Room("Road\n", "Moving a little forward you start discerning more buildings around you.\n"));
-	//Road 3
+	//Road 3 11
 	Room1.push_back(new Room("Road\n", "You are still on the same road surrounded by some buildings, ah..this road seems endless.\n"));
-	//Road 4
+	//Road 4 12
 	Room1.push_back(new Room("Road\n", "This is the end of the road, in front of you shows up a small building with a strange frost door.\n"));
-	//Inside the Maze
+	//Inside the Maze 13
 	Room1.push_back(new Room("Inside the Maze\n", "Suddenly you find yourself lost deep into the maze.\n"));
 
 	/* Exits */
 
-	//Start
-	Exit1.push_back(new Exit("There is nothing relevant into that direction", "There is nothing relevant into that direction", "You see a small path which seems to lead into the town", "There is nothing relevant into that direction"));
-	//Road
-	Exit1.push_back(new Exit("A small building appears in front of you, it look like an old warehouse", "The path continues", "An old Mansion rises before you", "That big sign you saw now seems to be smaller from the distance"));
-	//Warehouse
-	Exit1.push_back(new Exit("There is nothing relevant into that direction", "There is a door which leads back to the road", "There is nothing relevant into that direction", "There is nothing relevant into that direction"));
-	//Sewers
-	Exit1.push_back(new Exit("There is nothing relevant into that direction", "There is nothing relevant into that direction", "There is a door which leads back to the road", "There is nothing relevant into that direction"));
-	//Purifying plant
-	Exit1.push_back(new Exit("There is a small rusty old door which seems to lead down into the sewers", "There is nothing relevant into that direction", "There is a big iron door which leads back to the road", "There is nothing relevant into that direction"));
-	//Gym
-	Exit1.push_back(new Exit("There is nothing relevant into that direction", "There is nothing relevant into that direction", "There is a door which leads back to the road", "There is nothing relevant into that direction"));
-	//Frost house
-	Exit1.push_back(new Exit("There is an icy door which leads back to the road", "There is nothing relevant into that direction", "There is nothing relevant into that direction", "There is nothing relevant into that direction"));
-	//Maze
-	Exit1.push_back(new Exit("There is nothing relevant into that direction", "There is nothing relevant into that direction", "There is a small path which leads back to the road", "There is nothing relevant into that direction"));
-	//Jail
-	Exit1.push_back(new Exit("There is nothing relevant into that direction", "There is nothing relevant into that direction", "There is nothing relevant into that direction", "There is an armored door which leads back to the road"));
-	//Old mansion
-	Exit1.push_back(new Exit("There is nothing relevant into that direction", "There is nothing relevant into that direction", "There is nothing relevant into that direction", "You see a golden door which leads back to the road"));
-	//Road 2
-	Exit1.push_back(new Exit("The path continues", "The path continues", "There is a locked door which leads to the jail", "There is a door which leads to the sewers"));
-	//Road 3
-	Exit1.push_back(new Exit("The path continues", "The path continues", "There is a door which leads to the gym", "There is a door which leads to the purifying plant"));
-	//Road 4
-	Exit1.push_back(new Exit("The path continues", "There is an icy door", "You see the entrance of a maze", "There is nothing relevant into that direction"));
+	//Start 
+	Exit1.push_back(new Exit("Path 1", "You see a small path which seems to lead into the town", Room1[0], Room1[1], false, east));
+	Exit1.push_back(new Exit("Path 1", "That big sign you saw now seems to be smaller from the distance", Room1[1], Room1[0], false, west));
+	Exit1.push_back(new Exit("Entrance 1", "There is a door which leads back to the road", Room1[2], Room1[1], true, south));
+	Exit1.push_back(new Exit("Entrance 1", "A small building appears in front of you, it look like an old warehouse", Room1[1], Room1[2], true, north));
+	Exit1.push_back(new Exit("Entrance 2", "An old Mansion rises before you", Room1[1], Room1[9], false, east));
+	Exit1.push_back(new Exit("Entrance 2", "You see the golden door which leads back to the road", Room1[9], Room1[1], false, west));
+	Exit1.push_back(new Exit("Path 2", "The path continues", Room1[1], Room1[10], false, south));
+	Exit1.push_back(new Exit("Path 2", "The path continues", Room1[10], Room1[1], false, north));
+	Exit1.push_back(new Exit("Entrance 3", "There is a locked door which leads to the jail", Room1[10], Room1[8], false, east));
+	Exit1.push_back(new Exit("Entrance 3", "There is an armored door which leads back to the road", Room1[8], Room1[10], false, west));
+	Exit1.push_back(new Exit("Entrance 4", "There is a door which leads back to the road", Room1[3], Room1[10], false, east));
+	Exit1.push_back(new Exit("Entrance 4", "There is a door which leads into the sewers", Room1[10], Room1[3], false, west));
+	Exit1.push_back(new Exit("Path 3", "The path continues", Room1[10], Room1[11], false, south));
+	Exit1.push_back(new Exit("Path 3", "The path continues", Room1[11], Room1[10], false, north));
+	Exit1.push_back(new Exit("Path 4", "The path continues", Room1[11], Room1[12], false, south));
+	Exit1.push_back(new Exit("Path 4", "The path continues", Room1[12], Room1[11], false, north));
+	Exit1.push_back(new Exit("Entrance 5", "There is a door which leads to the gym", Room1[11], Room1[5], false, east));
+	Exit1.push_back(new Exit("Entrance 5", "There is a door which leads back to the road", Room1[5], Room1[11], false, west));
+	Exit1.push_back(new Exit("Entrance 6", "There is a big iron door which leads back to the road", Room1[4], Room1[11], false, east));
+	Exit1.push_back(new Exit("Entrance 6", "There is a door which leads to the purifying plant", Room1[11], Room1[4], false, west));
+	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[12], Room1[7], false, east));
+	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[7], Room1[13], false, north));
+	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[7], Room1[13], false, south));
+	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[7], Room1[13], false, east));
+	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[7], Room1[13], false, west));
+	Exit1.push_back(new Exit("Path 4", "There is an icy door", Room1[12], Room1[6], false, south));
+	Exit1.push_back(new Exit("Path 4", "You see the icy door which leads back to the road", Room1[6], Room1[12], false, north));
+	Exit1.push_back(new Exit("Path 4", "Entrance to the Sewers", Room1[4], Room1[3], false, north));
+	Exit1.push_back(new Exit("Path 4", "Entrance to the Purifying Plant", Room1[3], Room1[4], false, south));
 
 	/* Items */
 
@@ -80,11 +84,8 @@ void World::CreateWorld()
 	Item1.push_back(new Item("key", "An old rusty key", Room1[13]));
 	//Gloves
 	Item1.push_back(new Item("mail Gloves", "A Heavy rough pair of mail guantlets", Room1[4]));
-}
 
-void World::Exits() //Here we are giving every exit a descriptionription
-{
-	
+	player->Pos = Room1[0];
 }
 
 //destructor

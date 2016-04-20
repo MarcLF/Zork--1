@@ -96,10 +96,11 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 	//Open / Close door inputs
 	else if (input == "open door")
 	{
-		if ((player->posX == 1 || player->posX == 2) && Item1[1]->taken == true)
+		if ((player->Pos == Room1[1] || player->Pos == Room1[2]) && Item1[1]->taken == true)
 		{
 			printf("Door is open\n");
-			openDoor = true;
+			Exit1[2]->door = false;
+			Exit1[3]->door = false;
 		}
 		else
 		{
@@ -108,10 +109,11 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 	}
 	else if (input == "close door")
 	{
-		if ((player->posX == 1 || player->posX == 2) && openDoor == true)
+		if ((player->Pos == Room1[1] || player->Pos == Room1[2]) && (Exit1[2]->door == false || Exit1[3]->door == false))
 		{
 			printf("You close the door\n");
-			openDoor = false;
+			Exit1[2]->door = true;
+			Exit1[3]->door = true;
 		}
 		else 
 		{
@@ -167,7 +169,7 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 			printf("Both guards look at each other and after a few seconds take the money and left the entrance\n");
 			BribeGuards = true;
 		}
-		if (player->posX != 12)
+		if (player->Pos != Room1[12])
 		{
 			printf("What guards?");
 		}

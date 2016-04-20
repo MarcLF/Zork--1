@@ -128,7 +128,7 @@ void World::Maze() //This function represents a minigame for the player which he
 
 	printf("\nFINALLY after so much effort you get to find the exit of this goddanm Maze.\n\n");
 
-	player->posX = 12; //It redirects the player back into the road
-	printf("%s", Room1[player->posX]->name);
-	printf("%s", Room1[player->posX]->description);
+	player->Pos = Room1[12]; //It redirects the player back into the road
+	printf("%s", Room1[12]->name);
+	printf("%s", Room1[12]->description);
 }

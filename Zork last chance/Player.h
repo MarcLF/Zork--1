@@ -4,7 +4,7 @@
 class Player
 {
 public:
-	int posX = 0;//Player Position
+	Room* Pos = nullptr;
 };
 
 #endif

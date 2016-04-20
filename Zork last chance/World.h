@@ -22,7 +22,6 @@ public:
 
 	void CreateWorld();
 	void GetInput(MyString&input);
-	void Exits();
 	void Items();
 
 	//Take / Drop
@@ -44,7 +43,6 @@ public:
 
 	//Open/close door functions
 	void closeDoor();
-	bool openDoor = false;
 
 	//Other actions
 	bool BribeGuards = false;

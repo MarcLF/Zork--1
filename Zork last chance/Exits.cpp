@@ -2,7 +2,8 @@
 #include "Exits.h"
 #include "World.h"
 
-Exit::Exit(const char* desN, const char* desS, const char* desE, const char* desW): desN(desN), desS(desS), desE(desE), desW(desW)
+Exit::Exit(const char* name, const char* description, Room* origin, Room* destination, bool door, direction dir1) :
+Entity(name, description), origin(origin), destination(destination), door(door), direction1(dir1)
 {
 }
 
