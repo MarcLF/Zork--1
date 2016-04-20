@@ -78,6 +78,7 @@
   <ItemGroup>
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Exits.cpp" />
+    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="Look.cpp" />

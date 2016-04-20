@@ -119,38 +119,43 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 		}
 	}
 
-	//Take / pick up inputs
-	else if (input == "take cash")
-	{
-		if (player->posX == 2 && Item1[0]->taken == false)
-		{
-			CashImage();
-			Item1[0]->taken = true;
-		}
-		else
-		{
-			printf("There is no cash to take\n");
-		}
-	}
+	//Take / pick up objects
 	else if (input == "take")
 	{
 		printf("What item?\n\n>");
 		gets_s(Input2);
 		input2 = Input2;
 
-		if (input2 == "cash" && player->posX == 2 && Item1[0]->taken == false)
+		for (int i = 0; i < 3; i++)
 		{
-			CashImage();
-			Item1[0]->taken = true;
+			if (Item1[i]->taken == false && Item1[i]->name == input2)
+			{
+				TakeObject(input2);
+			}
+			else if (Item1[i]->taken == true && Item1[i]->name == input2)
+			{
+				printf("there is no %s to take \n", input2);
+			}
+		}
+	}
 
-		}
-		else if (input2 == "cash" && Item1[0]->taken == true)
+	//Drop objects
+	else if (input == "drop")
+	{
+		printf("What item?\n\n>");
+		gets_s(Input2);
+		input2 = Input2;
+
+		for (int i = 0; i < 3; i++)
 		{
-			printf("There is no %s to take\n", input2);
-		}
-		else
-		{
-			printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
+			if (Item1[i]->taken == true && Item1[i]->name == input2)
+			{
+				DropObject(input2);
+			}
+			else if (Item1[i]->taken == false && Item1[i]->name == input2)
+			{
+				printf("there is no %s to drop \n", input2);
+			}
 		}
 	}
 
@@ -177,4 +182,5 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 	{
 		printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
 	}
+		
 }

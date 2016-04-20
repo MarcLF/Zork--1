@@ -75,13 +75,12 @@ void World::CreateWorld()
 	/* Items */
 
 	//Cash
-	Item1.push_back(new Item("Cash", "A hundred bucks", Room1[2]));
+	Item1.push_back(new Item("cash", "A hundred bucks", Room1[2]));
 	//Key
-	Item1.push_back(new Item("Key", "An old rusty key", Room1[13]));
+	Item1.push_back(new Item("key", "An old rusty key", Room1[13]));
 	//Gloves
-	Item1.push_back(new Item("Mail Gloves", "A Heavy rough pair of mail guantlets", Room1[4]));
+	Item1.push_back(new Item("mail Gloves", "A Heavy rough pair of mail guantlets", Room1[4]));
 }
-
 
 void World::Exits() //Here we are giving every exit a descriptionription
 {

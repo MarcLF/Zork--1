@@ -25,6 +25,10 @@ public:
 	void Exits();
 	void Items();
 
+	//Take / Drop
+	void TakeObject(MyString&input);
+	void DropObject(MyString&input);
+
 	//Move functions
 	void GoNorth();
 	void GoSouth();
