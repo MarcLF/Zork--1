@@ -16,51 +16,32 @@ void World::Maze() //This function represents a minigame for the player which he
 
 		if (cont == 2)
 		{
-			cont++;
-			printf("After a couple hours walking in circles you find yourself in a small glade, standing in the middle you see an old rusty key.");
+			printf("After a couple hours walking in circles you find yourself in a small glade, standing in the middle you see an old rusty key.\n");
 			printf("\n>");
 			gets_s(Input);
 			input = Input;
 
-			if (input == "take key")
-			{
-				if (Item1[1]->taken == false)
-				{
-					printf("You take the key");
-					Item1[1]->taken = true;
-				}
-				else
-				{
-					printf("There is no key to take\n");
-				}
-			}
-			else if (input == "take")
-			{
-				printf("What item?\n\n>");
-				gets_s(Input);
-				input = Input;
+		if (input == "take")
+		{
+			printf("What item?\n\n>");
+			gets_s(Input);
+			input = Input;
 
-				if (input == "take" && Item1[1]->taken == false)
+			for (int i = 0; i < 3; i++)
+			{
+				if (Item1[i]->taken == false && Item1[i]->name == input)
 				{
-					printf("You take the key");
-					Item1[1]->taken = true;
-
+					TakeObject(input);
 				}
-				else if (input == "key" && Item1[1]->taken == true)
+				else if (Item1[i]->taken == true && Item1[i]->name == input)
 				{
-					printf("There is no %s to take\n", Input);
-				}
-				else if (input == "exit")
-				{
-					exit(0);
-				}
-				else
-				{
-					printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
+					printf("there is no %s to take \n", input);
 				}
 			}
 		}
-		else
+			cont++;
+		}
+		else 
 		{
 			//Movement inputs
 		if (input == "go north" || input == "north" || input == "go n" || input == "n")
