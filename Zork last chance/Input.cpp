@@ -185,6 +185,10 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 			printf("You have nothing to bribe them\n");
 		}
 	}
+	else if (input == "inventory")
+	{
+		Inventory();
+	}
 
 	//Error message
 	else

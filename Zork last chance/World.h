@@ -11,6 +11,7 @@
 
 #define NUM_ROOMS 14
 #define NUM_EXITS 29
+#define NUM_ITEMS 3
 
 class World
 {
@@ -30,6 +31,9 @@ public:
 	//Take / Drop
 	void TakeObject(MyString&input);
 	void DropObject(MyString&input);
+
+	//Inventory
+	void Inventory();
 
 	//Move functions
 	void GoNorth();
