@@ -4,21 +4,20 @@
 //Look functions
 void World::Look() const
 {
-	/*if (player->posX == 2 && Item1[0]->taken == true)
+	for (int i = 0; i < NUM_ROOMS; i++)
 	{
-		printf("%s", Room1[player->posX]->name);
-		printf("You are in a warehouse, in front of you there the table where you took the money");
+		if (player->Pos == Room1[i])
+		{
+			printf("%s", Room1[i]->name);
+			printf("%s", Room1[i]->description);
+		}
 	}
-	else
-	{
-		printf("%s", Room1[player->Pos]->name);
-		printf("%s", Room1[player->posX]->description);
-	}*/
+	
 }
 
 void World::LookNorth() const
 {
-	for (int j = 0; j < 26; j++)
+	for (int j = 0; j < NUM_EXITS; j++)
 	{
 		if (player->Pos == Exit1[j]->origin && Exit1[j]->direction1 == north)
 		{
@@ -30,7 +29,7 @@ void World::LookNorth() const
 
 void World::LookSouth() const
 {
-	for (int j = 0; j < 26; j++)
+	for (int j = 0; j < NUM_EXITS; j++)
 	{
 		if (player->Pos == Exit1[j]->origin && Exit1[j]->direction1 == south)
 		{
@@ -42,7 +41,7 @@ void World::LookSouth() const
 
 void World::LookEast() const
 {
-	for (int j = 0; j < 26; j++)
+	for (int j = 0; j < NUM_EXITS; j++)
 	{
 		if (player->Pos == Exit1[j]->origin && Exit1[j]->direction1 == east)
 		{
@@ -54,7 +53,7 @@ void World::LookEast() const
 
 void World::LookWest() const
 {
-	for (int j = 0; j < 26; j++)
+	for (int j = 0; j < NUM_EXITS; j++)
 	{
 		if (player->Pos == Exit1[j]->origin && Exit1[j]->direction1 == west)
 		{

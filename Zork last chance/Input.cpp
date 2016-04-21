@@ -23,6 +23,7 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 		If you want to get information about the room you are in type 'Look' 
 		There are other options like bribe a npc or to open / close a door
 		or if you prefer to know about the exits you can take type: look [direction] or look [n/s/e/w]
+		To take/drop items type take or drop and then the name of the item you want to take/drop
 		Type 'system cls' to clean the screen 'exit' or 'quit' to leave)EOF");
 	}
 	else if (input == "system cls")
@@ -98,7 +99,7 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 	{
 		if ((player->Pos == Room1[1] || player->Pos == Room1[2]) && Item1[1]->taken == true)
 		{
-			printf("Door is open\n");
+			printf("\nDoor is open\n");
 			Exit1[2]->door = false;
 			Exit1[3]->door = false;
 		}
@@ -111,13 +112,13 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 	{
 		if ((player->Pos == Room1[1] || player->Pos == Room1[2]) && (Exit1[2]->door == false || Exit1[3]->door == false))
 		{
-			printf("You close the door\n");
+			printf("\nYou close the door\n");
 			Exit1[2]->door = true;
 			Exit1[3]->door = true;
 		}
 		else 
 		{
-			printf("There is no door to be closed\n");
+			printf("\nThere is no door to be closed\n");
 		}
 	}
 
@@ -130,15 +131,18 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 
 		for (int i = 0; i < 3; i++)
 		{
-			if (Item1[i]->taken == false && Item1[i]->name == input2)
+			if (Item1[i]->taken == false && Item1[i]->name == input2 && player->Pos == Item1[i]->place)
 			{
 				TakeObject(input2);
+				return;
 			}
-			else if (Item1[i]->taken == true && Item1[i]->name == input2)
+			else if (Item1[i]->name == input2 && player->Pos != Item1[i]->place)
 			{
-				printf("there is no %s to take \n", input2);
+				printf("\nThere is no %s to take. \n", input2);
+				return;
 			}
 		}
+		printf("\n%s doesn't exist in this world. \n", input2);
 	}
 
 	//Drop objects
@@ -153,12 +157,15 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 			if (Item1[i]->taken == true && Item1[i]->name == input2)
 			{
 				DropObject(input2);
+				return;
 			}
-			else if (Item1[i]->taken == false && Item1[i]->name == input2)
+			else if (Item1[i]->name == input2 && Item1[i]->taken == false)
 			{
-				printf("there is no %s to drop \n", input2);
+				printf("\nThere is no %s to drop \n", input2);
+				return;
 			}
 		}
+		printf("\n%s doesn't exist in this world. \n", input2);
 	}
 
 	//Actions inputs
@@ -167,9 +174,9 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 		if (Item1[0]->taken == true)
 		{
 			printf("Both guards look at each other and after a few seconds take the money and left the entrance\n");
-			BribeGuards = true;
+			Exit1[19]->door = true;
 		}
-		if (player->Pos != Room1[12])
+		else if (player->Pos != Room1[12])
 		{
 			printf("What guards?");
 		}

@@ -27,7 +27,6 @@ public:
 	bool empty()const;
 	bool operator==(const MyString &other) const;
 	bool operator==(const char *string) const;
-
 	void operator=(const MyString &other);
 	void operator=(const char *other);
 

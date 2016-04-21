@@ -9,6 +9,9 @@
 #include"Exits.h"
 #include"Items.h"
 
+#define NUM_ROOMS 14
+#define NUM_EXITS 29
+
 class World
 {
 public:
@@ -41,15 +44,11 @@ public:
 	void LookWest() const;
 	void LookEast() const;
 
-	//Open/close door functions
-	void closeDoor();
-
 	//Other actions
-	bool BribeGuards = false;
 	void Maze(); //When the player enters the room Inside the Maze it will automatically call this function
 
-	//Cash image
-	void CashImage() const;
+	//Items pictures
+	void Pictures() const;
 
 	~World(); //Destructor
 };

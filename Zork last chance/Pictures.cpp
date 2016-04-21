@@ -2,10 +2,11 @@
 #include "World.h"
 
 //Items
-void World::CashImage() const
+void World::Pictures() const
 {
-	printf("You take some cash\n");
-	printf(R"EOF(
+	if (Item1[0]->taken == true)
+	{
+		printf(R"EOF(
 ||====================================================================||
 ||//$\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\//$\\||
 ||(100)==================| RESERVE BANK OF INDIA|================(100)||
@@ -22,4 +23,20 @@ void World::CashImage() const
 ||\\$//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\$//||
 ||====================================================================||
 )EOF");
+	}
+	else if (Item1[1]->taken == true)
+	{
+		printf(R"EOF(
+ ad8888888888ba 
+dP'         `"8b, 
+8  ,aaa,       "Y888a     ,aaaa,     ,aaa,  ,aa, 
+8  8' `8           "8baaaad""""baaaad""""baad""8b  
+8  8   8              """"      """"      ""    8b 
+8  8, ,8         ,aaaaaaaaaaaaaaaaaaaaaaaaddddd88P 
+8  `"""'       ,d8"" 
+Yb,         ,ad8" 
+ "Y8888888888P" 
+
+)EOF");
+	}
 }

@@ -45,36 +45,64 @@ void World::CreateWorld()
 
 	/* Exits */
 
-	//Start 
-	Exit1.push_back(new Exit("Path 1", "You see a small path which seems to lead into the town", Room1[0], Room1[1], false, east));
-	Exit1.push_back(new Exit("Path 1", "That big sign you saw now seems to be smaller from the distance", Room1[1], Room1[0], false, west));
-	Exit1.push_back(new Exit("Entrance 1", "There is a door which leads back to the road", Room1[2], Room1[1], true, south));
-	Exit1.push_back(new Exit("Entrance 1", "A small building appears in front of you, it look like an old warehouse", Room1[1], Room1[2], true, north));
-	Exit1.push_back(new Exit("Entrance 2", "An old Mansion rises before you", Room1[1], Room1[9], false, east));
-	Exit1.push_back(new Exit("Entrance 2", "You see the golden door which leads back to the road", Room1[9], Room1[1], false, west));
-	Exit1.push_back(new Exit("Path 2", "The path continues", Room1[1], Room1[10], false, south));
-	Exit1.push_back(new Exit("Path 2", "The path continues", Room1[10], Room1[1], false, north));
-	Exit1.push_back(new Exit("Entrance 3", "There is a locked door which leads to the jail", Room1[10], Room1[8], false, east));
-	Exit1.push_back(new Exit("Entrance 3", "There is an armored door which leads back to the road", Room1[8], Room1[10], false, west));
-	Exit1.push_back(new Exit("Entrance 4", "There is a door which leads back to the road", Room1[3], Room1[10], false, east));
-	Exit1.push_back(new Exit("Entrance 4", "There is a door which leads into the sewers", Room1[10], Room1[3], false, west));
-	Exit1.push_back(new Exit("Path 3", "The path continues", Room1[10], Room1[11], false, south));
-	Exit1.push_back(new Exit("Path 3", "The path continues", Room1[11], Room1[10], false, north));
-	Exit1.push_back(new Exit("Path 4", "The path continues", Room1[11], Room1[12], false, south));
-	Exit1.push_back(new Exit("Path 4", "The path continues", Room1[12], Room1[11], false, north));
-	Exit1.push_back(new Exit("Entrance 5", "There is a door which leads to the gym", Room1[11], Room1[5], false, east));
-	Exit1.push_back(new Exit("Entrance 5", "There is a door which leads back to the road", Room1[5], Room1[11], false, west));
-	Exit1.push_back(new Exit("Entrance 6", "There is a big iron door which leads back to the road", Room1[4], Room1[11], false, east));
-	Exit1.push_back(new Exit("Entrance 6", "There is a door which leads to the purifying plant", Room1[11], Room1[4], false, west));
-	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[12], Room1[7], false, east));
-	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[7], Room1[13], false, north));
-	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[7], Room1[13], false, south));
-	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[7], Room1[13], false, east));
-	Exit1.push_back(new Exit("Path 4", "You are inside the maze", Room1[7], Room1[13], false, west));
-	Exit1.push_back(new Exit("Path 4", "There is an icy door", Room1[12], Room1[6], false, south));
-	Exit1.push_back(new Exit("Path 4", "You see the icy door which leads back to the road", Room1[6], Room1[12], false, north));
-	Exit1.push_back(new Exit("Path 4", "Entrance to the Sewers", Room1[4], Room1[3], false, north));
-	Exit1.push_back(new Exit("Path 4", "Entrance to the Purifying Plant", Room1[3], Room1[4], false, south));
+	//0
+	Exit1.push_back(new Exit("Road1 to Road2", "The path continues", Room1[1], Room1[10], false, south)); //0
+	// 1
+	Exit1.push_back(new Exit("Road2 to Road1", "The path continues", Room1[10], Room1[1], false, north));
+	// 2
+	Exit1.push_back(new Exit("Road2 to Road3", "The path continues", Room1[10], Room1[11], false, south));
+	// 3
+	Exit1.push_back(new Exit("Road3 to Road2", "The path continues", Room1[11], Room1[10], false, north));
+	// 4
+	Exit1.push_back(new Exit("Road3 to Road4", "The path continues", Room1[11], Room1[12], false, south));
+	// 5
+	Exit1.push_back(new Exit("Road4 to Road3", "The path continues", Room1[12], Room1[11], false, north));
+	// 6
+	Exit1.push_back(new Exit("Start to Road1", "You see a small path which seems to lead into the town", Room1[0], Room1[1], false, east)); 
+	// 7
+	Exit1.push_back(new Exit("Road1 to Start", "That big sign you saw now seems to be smaller from the distance", Room1[1], Room1[0], false, west));
+	// 8
+	Exit1.push_back(new Exit("Warehouse to Road1", "There is a door which leads back to the road", Room1[2], Room1[1], true, south)); 
+	// 9
+	Exit1.push_back(new Exit("Road1 to Warehouse", "A small building appears in front of you, it look like an old warehouse", Room1[1], Room1[2], true, north)); 
+	// 10
+	Exit1.push_back(new Exit("Road1 to Old Mansion", "An old Mansion rises before you", Room1[1], Room1[9], false, east)); 
+	// 11
+	Exit1.push_back(new Exit("Old Mansion to Road1", "You see the golden door which leads back to the road", Room1[9], Room1[1], false, west)); 
+	// 12
+	Exit1.push_back(new Exit("Road2 to Jail", "There is a locked door which leads to the jail", Room1[10], Room1[8], false, east)); 
+	// 13
+	Exit1.push_back(new Exit("Jail to Road2", "There is an armored door which leads back to the road", Room1[8], Room1[10], false, west)); 
+	// 14
+	Exit1.push_back(new Exit("Sewers to Road2", "There is a door which leads back to the road", Room1[3], Room1[10], false, east)); 
+	// 15
+	Exit1.push_back(new Exit("Road2 to Sewers", "There is a door which leads into the sewers", Room1[10], Room1[3], false, west)); 
+	// 16
+	Exit1.push_back(new Exit("Road3 to Gym", "There is a door which leads to the gym", Room1[11], Room1[5], false, east)); 
+	// 17
+	Exit1.push_back(new Exit("Gym to Road3", "There is a door which leads back to the road", Room1[5], Room1[11], false, west));
+	// 18
+	Exit1.push_back(new Exit("Purifying Plant to Road3", "There is a big iron door which leads back to the road", Room1[4], Room1[11], false, east));
+	// 19
+	Exit1.push_back(new Exit("Road3 to Purifying Plant", "There is a door which leads to the Purifying Plant", Room1[11], Room1[4], true, west)); 
+	// 20
+	Exit1.push_back(new Exit("Road4 to Maze", "You are inside the maze", Room1[12], Room1[7], false, east));
+	// 21
+	Exit1.push_back(new Exit("Maze to Inside the Maze", "You are inside the maze", Room1[7], Room1[13], false, north));
+	// 22
+	Exit1.push_back(new Exit("Maze to Inside the Maze", "You are inside the maze", Room1[7], Room1[13], false, south)); 
+	// 23
+	Exit1.push_back(new Exit("Maze to Inside the Maze", "You are inside the maze", Room1[7], Room1[13], false, east));
+	// 24
+	Exit1.push_back(new Exit("Maze to Inside the Maze", "You are inside the maze", Room1[7], Room1[13], false, west));
+	// 25
+	Exit1.push_back(new Exit("Road4 to Frost House", "There is an icy door", Room1[12], Room1[6], false, south)); 
+	// 26
+	Exit1.push_back(new Exit("Frost House to Road4", "You see the icy door which leads back to the road", Room1[6], Room1[12], false, north)); 
+	// 27
+	Exit1.push_back(new Exit("Purifyong Plant to Sewers", "Entrance to the Sewers", Room1[4], Room1[3], false, north));
+	// 28
+	Exit1.push_back(new Exit("Sewers to Purifyong Plant", "Entrance to the Purifying Plant", Room1[3], Room1[4], false, south)); 
 
 	/* Items */
 

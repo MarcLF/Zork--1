@@ -11,11 +11,11 @@ void World::GoNorth()
 	}
 	else
 	{
-		for (int i = 0; i < 29; i++)
+		for (int i = 0; i < NUM_EXITS; i++)
 		{
 			if (Exit1[i]->origin == player->Pos && Exit1[i]->direction1 == north)
 			{
-				for (int j = 0; j < 14; j++)
+				for (int j = 0; j < NUM_ROOMS; j++)
 				{
 					if (Exit1[i]->destination == Room1[j])
 					{
@@ -24,7 +24,7 @@ void World::GoNorth()
 							printf("There is a locked door here. \n");
 							return;
 						}
-						else
+						else if (Exit1[i]->door == false)
 						{
 							player->Pos = Exit1[i]->destination;
 							printf("%s", Room1[j]->name);
@@ -35,6 +35,7 @@ void World::GoNorth()
 				}
 			}
 		}
+		printf("You can't go that way. \n");
 	}
 }
 
@@ -47,11 +48,11 @@ void World::GoSouth()
 	}
 	else
 	{
-		for (int i = 0; i < 29; i++)
+		for (int i = 0; i < NUM_EXITS; i++)
 		{
 			if (Exit1[i]->origin == player->Pos && Exit1[i]->direction1 == south)
 			{
-				for (int j = 0; j < 14; j++)
+				for (int j = 0; j < NUM_ROOMS; j++)
 				{
 					if (Exit1[i]->destination == Room1[j])
 					{
@@ -60,7 +61,7 @@ void World::GoSouth()
 							printf("There is a locked door here. \n");
 							return;
 						}
-						else
+						else if (Exit1[i]->door == false)
 						{
 							player->Pos = Exit1[i]->destination;
 							printf("%s", Room1[j]->name);
@@ -71,6 +72,7 @@ void World::GoSouth()
 				}
 			}
 		}
+		printf("You can't go that way. \n");
 	}
 }
 
@@ -83,11 +85,11 @@ void World::GoEast()
 	}
 	else
 	{
-		for (int i = 0; i < 29; i++)
+		for (int i = 0; i < NUM_EXITS; i++)
 		{
 			if (Exit1[i]->origin == player->Pos && Exit1[i]->direction1 == east)
 			{
-				for (int j = 0; j < 14; j++)
+				for (int j = 0; j < NUM_ROOMS; j++)
 				{
 					if (Exit1[i]->destination == Room1[j])
 					{
@@ -96,7 +98,7 @@ void World::GoEast()
 							printf("There is a locked door here. \n");
 							return;
 						}
-						else
+						else if (Exit1[i]->door == false)
 						{
 							player->Pos = Exit1[i]->destination;
 							printf("%s", Room1[j]->name);
@@ -107,6 +109,7 @@ void World::GoEast()
 				}
 			}
 		}
+		printf("You can't go that way. \n");
 	}
 }
 
@@ -119,11 +122,11 @@ void World::GoWest()
 	}
 	else
 	{
-		for (int i = 0; i < 29; i++)
+		for (int i = 0; i < NUM_EXITS; i++)
 		{
 			if (Exit1[i]->origin == player->Pos && Exit1[i]->direction1 == west)
 			{
-				for (int j = 0; j < 14; j++)
+				for (int j = 0; j < NUM_ROOMS; j++)
 				{
 					if (Exit1[i]->destination == Room1[j])
 					{
@@ -132,7 +135,7 @@ void World::GoWest()
 							printf("There is a locked door here. \n");
 							return;
 						}
-						else
+						else if (Exit1[i]->door == false)
 						{
 							player->Pos = Exit1[i]->destination;
 							printf("%s", Room1[j]->name);
@@ -143,5 +146,6 @@ void World::GoWest()
 				}
 			}
 		}
+		printf("You can't go that way. \n");
 	}
 }

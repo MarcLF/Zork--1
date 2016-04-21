@@ -7,8 +7,9 @@ void World::TakeObject(MyString&input)
 	{
 		if (Item1[i]->taken == false && Item1[i]->name == input)
 		{
-			printf("You take %s \n", input);
+			printf("You take the %s \n", input);
 			Item1[i]->taken = true;
+			Pictures();
 		}
 	}
 }
@@ -19,7 +20,8 @@ void World::DropObject(MyString&input)
 	{
 		if (Item1[i]->taken == true && Item1[i]->name == input)
 		{
-			printf("You drop %s \n", input);
+			printf("You drop the %s \n", input);
+			Pictures();
 			Item1[i]->taken = false;
 			Item1[i]->place = player->Pos;
 		}
