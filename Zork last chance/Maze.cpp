@@ -21,108 +21,116 @@ void World::Maze() //This function represents a minigame for the player which he
 			gets_s(Input);
 			input = Input;
 
-		if (input == "take")
-		{
-			printf("What item?\n\n>");
-			gets_s(Input);
-			input = Input;
-
-			for (int i = 0; i < 3; i++)
+			if (input == "take")
 			{
-				if (Item1[i]->taken == false && Item1[i]->name == input)
+				printf("What item?\n\n>");
+				gets_s(Input);
+				input = Input;
+
+				for (int i = 0; i < 3; i++)
 				{
-					TakeObject(input);
-				}
-				else if (Item1[i]->taken == true && Item1[i]->name == input)
-				{
-					printf("there is no %s to take \n", input);
+					if (Item1[i]->taken == false && Item1[i]->name == input)
+					{
+						TakeObject(input);
+					}
+					else if (Item1[i]->taken == true && Item1[i]->name == input)
+					{
+						printf("there is no %s to take \n", input);
+					}
 				}
 			}
-		}
-			cont++;
+			else if (input == "inventory")
+			{
+				Inventory();
+			}
+				cont++;
 		}
 		else 
 		{
 			//Movement inputs
-		if (input == "go north" || input == "north" || input == "go n" || input == "n")
-		{
-			puts(Maze);
-			printf("\n>");
-			gets_s(Input);
-			input = Input;
+			if (input == "go north" || input == "north" || input == "go n" || input == "n")
+			{
+				puts(Maze);
+				printf("\n>");
+				gets_s(Input);
+				input = Input;
 
-			if (input == "go west" || input == "west" || input == "go w" || input == "w")
+				if (input == "go west" || input == "west" || input == "go w" || input == "w")
+				{
+					puts(Maze);
+					cont++;
+				}
+				else
+				{
+					puts(Maze);
+				}
+			}	
+			else if (input == "go south" || input == "south" || input == "go s" || input == "s")
 			{
 				puts(Maze);
-				cont++;
-			}
-			else
-			{
-				puts(Maze);
-			}
-		}
-		else if (input == "go south" || input == "south" || input == "go s" || input == "s")
-		{
-			puts(Maze);
-			printf("\n>");
-			gets_s(Input);
-			input = Input;
+				printf("\n>");
+				gets_s(Input);
+				input = Input;
 
-			if (input == "go east" || input == "east" || input == "go e" || input == "e")
+				if (input == "go east" || input == "east" || input == "go e" || input == "e")
+				{
+					puts(Maze);
+					cont++;
+				}
+				else if (input == "go west" || input == "west" || input == "go w" || input == "w")
+				{
+					puts(Maze);
+					cont++;
+				}
+				else
+				{
+					puts(Maze);
+				}
+			}
+			else if (input == "go east" || input == "east" || input == "go e" || input == "e")
 			{
 				puts(Maze);
-				cont++;
-			}
+				printf("\n>");
+				gets_s(Input);
+				input = Input;
+
+				if (input == "go north" || input == "north" || input == "go n" || input == "n")
+				{
+					puts(Maze);
+					cont++;
+				}
+				else
+				{
+					puts(Maze);
+				}
+			}	
 			else if (input == "go west" || input == "west" || input == "go w" || input == "w")
 			{
 				puts(Maze);
-				cont++;
-			}
-			else
-			{
-				puts(Maze);
-			}
-		}
-		else if (input == "go east" || input == "east" || input == "go e" || input == "e")
-		{
-			puts(Maze);
-			printf("\n>");
-			gets_s(Input);
-			input = Input;
+				printf("\n>");
+				gets_s(Input);
+				input = Input;
 
-			if (input == "go north" || input == "north" || input == "go n" || input == "n")
-			{
-				puts(Maze);
-				cont++;
+				if (input == "go north" || input == "north" || input == "go n" || input == "n")
+				{
+					puts(Maze);
+					cont++;
+				}
+				else
+				{
+					puts(Maze);
+				}
 			}
-			else
-			{
-				puts(Maze);
-			}
-		}
-		else if (input == "go west" || input == "west" || input == "go w" || input == "w")
-		{
-			puts(Maze);
-			printf("\n>");
-			gets_s(Input);
-			input = Input;
 
-			if (input == "go north" || input == "north" || input == "go n" || input == "n")
+			//Various
+			else if (input == "inventory")
 			{
-				puts(Maze);
-				cont++;
+				Inventory();
 			}
-			else
+			else if (input == "exit")
 			{
-				puts(Maze);
+				exit(0);
 			}
-		}
-
-		//Various
-		else if (input == "exit")
-		{
-			exit(0);
-		}
 		}
 	}
 
