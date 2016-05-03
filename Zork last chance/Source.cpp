@@ -35,7 +35,7 @@ int main()
 		gets_s(Input);
 		printf("\n");
 		input = Input;
-		scenary.GetInput(input);
+		scenary.Input(input);
 	}
 
 	system("pause");

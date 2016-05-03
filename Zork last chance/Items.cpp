@@ -1,6 +1,6 @@
 #include "Items.h"
 
-Item::Item(const char* name, const char* description, Room* room) : Entity(name, description), place(room)
+Item::Item(const char* name, const char* description, Room* room, bool CanStore, bool IsStored) : Entity(name, description), place(room), CanStore(CanStore), IsStored(IsStored)
 {
 }
 

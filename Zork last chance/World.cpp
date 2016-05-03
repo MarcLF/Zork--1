@@ -102,16 +102,18 @@ void World::CreateWorld()
 	// 27
 	Exit1.push_back(new Exit("Purifyong Plant to Sewers", "Entrance to the Sewers", Room1[4], Room1[3], false, north));
 	// 28
-	Exit1.push_back(new Exit("Sewers to Purifyong Plant", "Entrance to the Purifying Plant", Room1[3], Room1[4], false, south)); 
+	Exit1.push_back(new Exit("Sewers to Purifying Plant", "Entrance to the Purifying Plant", Room1[3], Room1[4], false, south)); 
 
 	/* Items */
 
 	//Cash
-	Item1.push_back(new Item("cash", "A hundred bucks", Room1[2]));
+	Item1.push_back(new Item("cash", "A hundred bucks", Room1[2], false, false));
 	//Key
-	Item1.push_back(new Item("key", "An old rusty key", Room1[13]));
+	Item1.push_back(new Item("key", "An old rusty key", Room1[13], false, false));
 	//Gloves
-	Item1.push_back(new Item("mail Gloves", "A Heavy rough pair of mail guantlets", Room1[4]));
+	Item1.push_back(new Item("mail Gloves", "A Heavy rough pair of mail guantlets", Room1[4], false, false));
+	//Bag
+	Item1.push_back(new Item("bag", "A small bag, usefull to carry some objects", Room1[0], true, false));
 
 	player->Pos = Room1[0];
 }

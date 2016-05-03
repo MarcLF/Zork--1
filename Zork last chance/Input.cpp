@@ -2,10 +2,9 @@
 #include "String.h"
 #include "World.h"
 
-void World::GetInput(MyString&input)// Here we recieve the Input from the player and execute his/her order
+void World::Input(MyString&input)// Here we recieve the Input from the player and execute his/her order
 {
 	MyString input2;
-
 	char Input2[30];
 
 	//Various
@@ -122,14 +121,14 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 		}
 	}
 
-	//Take / pick up objects
+	//Take / pick up /objects
 	else if (input == "take")
 	{
 		printf("What item?\n\n>");
 		gets_s(Input2);
 		input2 = Input2;
 
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < NUM_ITEMS; i++)
 		{
 			if (Item1[i]->taken == false && Item1[i]->name == input2 && player->Pos == Item1[i]->place)
 			{
@@ -152,7 +151,7 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 		gets_s(Input2);
 		input2 = Input2;
 
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < NUM_ITEMS; i++)
 		{
 			if (Item1[i]->taken == true && Item1[i]->name == input2)
 			{
@@ -166,6 +165,16 @@ void World::GetInput(MyString&input)// Here we recieve the Input from the player
 			}
 		}
 		printf("\n%s doesn't exist in this world. \n", input2);
+	}
+
+	//Put an object inside another one
+	else if (input == "put")
+	{
+		printf("What item?\n\n>");
+		gets_s(Input2);
+		input2 = Input2;
+
+		PutObject(input2);
 	}
 
 	//Actions inputs

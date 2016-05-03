@@ -11,7 +11,7 @@
 
 #define NUM_ROOMS 14
 #define NUM_EXITS 29
-#define NUM_ITEMS 3
+#define NUM_ITEMS 4
 
 class World
 {
@@ -25,12 +25,13 @@ public:
 	Vector<Item*> Item1;//Items
 
 	void CreateWorld();
-	void GetInput(MyString&input);
+	void Input(MyString&input);
 	void Items();
 
-	//Take / Drop
+	//Take / Drop / Put
 	void TakeObject(MyString&input);
 	void DropObject(MyString&input);
+	void PutObject(MyString&input);
 
 	//Inventory
 	void Inventory();
@@ -52,7 +53,7 @@ public:
 	void Maze(); //When the player enters the room Inside the Maze it will automatically call this function
 
 	//Items pictures
-	void Pictures() const;
+	void Pictures(MyString&input) const;
 
 	~World(); //Destructor
 };

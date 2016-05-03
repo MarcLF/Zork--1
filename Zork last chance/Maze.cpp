@@ -131,6 +131,11 @@ void World::Maze() //This function represents a minigame for the player which he
 			{
 				exit(0);
 			}
+
+			else
+			{
+				printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
+			}
 		}
 	}
 
