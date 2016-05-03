@@ -23,6 +23,8 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 		There are other options like bribe a npc or to open / close a door
 		or if you prefer to know about the exits you can take type: look [direction] or look [n/s/e/w]
 		To take/drop items type take or drop and then the name of the item you want to take/drop
+		If you want to put an item into another one first type the name of the item you want to store
+		then type the name of the container
 		Type 'system cls' to clean the screen 'exit' or 'quit' to leave)EOF");
 	}
 	else if (input == "system cls")
@@ -174,7 +176,15 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 		gets_s(Input2);
 		input2 = Input2;
 
-		PutObject(input2);
+		for (int i = 0; i < NUM_ITEMS; i++)
+		{
+			if (Item1[i]->taken == true && Item1[i]->name == input2)
+			{
+				PutObject(input2);
+				return;
+			}
+		}
+		printf("\n%s doesn't exist in this world. \n", input2);
 	}
 
 	//Actions inputs

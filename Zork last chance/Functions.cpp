@@ -18,12 +18,26 @@ void World::DropObject(MyString&input)
 {
 	for (int i = 0; i < NUM_ITEMS; i++)
 	{
-		if (Item1[i]->taken == true && Item1[i]->name == input)
+		if (Item1[i]->taken == true && Item1[i]->name == input && Item1[i]->IsStored == false)
 		{
 			printf("You drop the %s \n", input);
 			Pictures(input);
 			Item1[i]->taken = false;
 			Item1[i]->place = player->Pos;
+		}
+		if (Item1[i]->taken == true && Item1[i]->name == input && Item1[i]->IsStored == true)
+		{
+			for (int j = 0; j < NUM_ITEMS; j++)
+			{
+				if (Item1[i]->place == Item1[j]->place)
+				{
+					printf("You drop the %s from your %s \n", input, Item1[j]->name);
+					Pictures(input);
+					Item1[i]->taken = false;
+					Item1[i]->place = player->Pos;
+					Item1[j]->MaxStorage++;
+				}
+			}
 		}
 	}
 }
@@ -44,17 +58,27 @@ void World::PutObject(MyString&input)
 		{
 			for (int j = 0; j < NUM_ITEMS; j++)
 			{
-				if (Item1[j]->taken == true && Item1[j]->name == input3 && Item1[j]->CanStore == true)
+				if (Item1[j]->taken == true && Item1[j]->name == input3 && Item1[j]->CanStore == true && Item1[j]->MaxStorage > 0)
 				{
 					Item1[i]->IsStored = true;
 					Item1[i]->place = Item1[j]->place;
-					printf("Now, %s is inside the bag\n", Item1[i]->name);
+					printf("Now, %s is inside the %s\n", Item1[i]->name.c_str(), Item1[j]->name.c_str());
+					Item1[j]->MaxStorage--;
+				}
+				else if (Item1[j]->taken == true && Item1[j]->name == input3 && Item1[j]->CanStore == true && Item1[j]->MaxStorage == 0)
+				{
+					printf("%s is full\n", Item1[j]->name.c_str());
 				}
 				else if (Item1[j]->taken == true && Item1[j]->name == input3 &&  Item1[j]->CanStore == false)
 				{
-					printf("%s can't store any object\n", Item1[j]->name);
+					printf("%s can't store any object\n", Item1[j]->name.c_str());
 				}
 			}
+		}
+		else
+		{
+			printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
+			return;
 		}
 	}
 }

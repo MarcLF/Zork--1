@@ -12,8 +12,9 @@ public:
 	bool taken = false;
 	bool CanStore = false;
 	bool IsStored = false;
+	int MaxStorage;
 
-	Item(const char*, const char*, Room* room, bool, bool);
+	Item(const char*, const char*, Room* room, bool, bool, int);
 	~Item();
 };
 
