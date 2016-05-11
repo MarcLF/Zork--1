@@ -101,8 +101,8 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 		if ((player->Pos == Room1[1] || player->Pos == Room1[2]) && Item1[1]->taken == true)
 		{
 			printf("\nDoor is open\n");
-			Exit1[2]->door = false;
-			Exit1[3]->door = false;
+			Exit1[8]->door = false;
+			Exit1[9]->door = false;
 		}
 		else
 		{
@@ -114,8 +114,8 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 		if ((player->Pos == Room1[1] || player->Pos == Room1[2]) && (Exit1[2]->door == false || Exit1[3]->door == false))
 		{
 			printf("\nYou close the door\n");
-			Exit1[2]->door = true;
-			Exit1[3]->door = true;
+			Exit1[8]->door = true;
+			Exit1[9]->door = true;
 		}
 		else 
 		{
@@ -193,7 +193,7 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 		if (Item1[0]->taken == true)
 		{
 			printf("Both guards look at each other and after a few seconds take the money and left the entrance\n");
-			Exit1[19]->door = true;
+			Exit1[19]->door = false;
 		}
 		else if (player->Pos != Room1[12])
 		{
@@ -214,5 +214,4 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 	{
 		printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
 	}
-		
 }

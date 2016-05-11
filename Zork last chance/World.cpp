@@ -116,6 +116,10 @@ void World::CreateWorld()
 	Item1.push_back(new Item("bag", "A small bag, usefull to carry some objects.", Room1[0], true, false, 3));
 
 	player->Pos = Room1[0];
+
+	//TEST CODE
+	//Item1[1]->taken = true;
+	//Item1[0]->taken = true;
 }
 
 //destructor

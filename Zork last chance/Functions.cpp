@@ -64,23 +64,22 @@ void World::PutObject(MyString&input)
 					Item1[i]->place = Item1[j]->place;
 					printf("Now, %s is inside the %s\n", Item1[i]->name.c_str(), Item1[j]->name.c_str());
 					Item1[j]->MaxStorage--;
+					return;
 				}
 				else if (Item1[j]->taken == true && Item1[j]->name == input3 && Item1[j]->CanStore == true && Item1[j]->MaxStorage == 0)
 				{
 					printf("%s is full\n", Item1[j]->name.c_str());
+					return;
 				}
 				else if (Item1[j]->taken == true && Item1[j]->name == input3 &&  Item1[j]->CanStore == false)
 				{
 					printf("%s can't store any object\n", Item1[j]->name.c_str());
+					return;
 				}
 			}
 		}
-		else
-		{
-			printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
-			return;
-		}
 	}
+	printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
 }
 
 void World::Inventory()
@@ -102,6 +101,7 @@ void World::Inventory()
 		printf("Do you wish to know each name and description of every item?\n\n>");
 		gets_s(Input3);
 		input3 = Input3;
+		printf("\n");
 
 		if (input3 == "yes")
 		{
@@ -114,9 +114,9 @@ void World::Inventory()
 						printf("\n%s\n", Item1[i]->name);
 						printf("%s\n", Item1[i]->description);
 					}
-					if (Item1[i]->CanStore == true)
+					if (Item1[i]->CanStore == true && Item1[i]->MaxStorage < 3)
 					{
-						printf("%s have some objects inside it, do you want to know what are those objects?\n", Item1[i]->name);
+						printf("%s have some objects inside it, do you want to know what are those objects?\n\n>", Item1[i]->name);
 						gets_s(Input3);
 						input3 = Input3;
 						if (input3 == "yes")
@@ -145,6 +145,4 @@ void World::Inventory()
 			printf("I didn't understand your order, please try another one or type 'help'\nto see more info\n");
 		}
 	}
-	
-
 }
