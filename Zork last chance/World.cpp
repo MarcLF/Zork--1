@@ -15,7 +15,7 @@ void World::CreateWorld()
 	/* Rooms */
 
 	//Start 0
-	Room1.push_back(new Room("Start\n", "You see a big sign which says WELCOME to the COWARD CITY!Where all cowards come to hide from the rest of the world!\n"));
+	Room1.push_back(new Room("Start\n", "You see a big sign which says WELCOME to the COWARD CITY!Where all cowards come to hide from the rest of the world! There is a bag on the floor\n"));
 	//Road 1
 	Room1.push_back(new Room("Road\n", "You find yourself in the middle of a dirty old road.\n"));
 	//Warehouse 2
