@@ -9,9 +9,9 @@
 #include"Exits.h"
 #include"Items.h"
 
-#define NUM_ROOMS 14
-#define NUM_EXITS 29
-#define NUM_ITEMS 4
+#define NUM_ROOMS 47
+#define NUM_EXITS 47
+#define NUM_ITEMS 47
 
 class World
 {
@@ -20,9 +20,7 @@ public:
 
 	Player* player = nullptr; //Player name
 
-	Vector<Room*> Room1;//Rooms
-	Vector<Exit*> Exit1;//Exits
-	Vector<Item*> Item1;//Items
+	Vector<Entity*> entity;
 
 	void CreateWorld();
 	void Input(MyString&input);

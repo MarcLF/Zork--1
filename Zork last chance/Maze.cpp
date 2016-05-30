@@ -27,13 +27,13 @@ void World::Maze() //This function represents a minigame for the player which he
 				gets_s(Input);
 				input = Input;
 
-				for (int i = 0; i < 3; i++)
+				for (int i = 0; i < NUM_ITEMS; i++)
 				{
-					if (Item1[i]->taken == false && Item1[i]->name == input)
+					if (((Item*)entity[i])->taken == false && ((Item*)entity[i])->name == input)
 					{
 						TakeObject(input);
 					}
-					else if (Item1[i]->taken == true && Item1[i]->name == input)
+					else if (((Item*)entity[i])->taken == true && ((Item*)entity[i])->name == input)
 					{
 						printf("there is no %s to take \n", input);
 					}
@@ -139,9 +139,9 @@ void World::Maze() //This function represents a minigame for the player which he
 		}
 	}
 
-	printf("\nFINALLY after so much effort you get to find the exit of this goddanm Maze.\n\n");
+	printf("\nFINALLY after so much effort you get to find the exit of this goddamn Maze.\n\n");
 
-	player->Pos = Room1[12]; //It redirects the player back into the road
-	printf("%s", Room1[12]->name);
-	printf("%s", Room1[12]->description);
+	player->Pos = (Room*)entity[12]; //It redirects the player back into the road
+	printf("%s", ((Room*)entity[12])->name);
+	printf("%s", ((Room*)entity[12])->description);
 }

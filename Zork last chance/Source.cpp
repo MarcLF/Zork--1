@@ -26,8 +26,8 @@ int main()
 	system("cls");
 
 	printf("--Welcome to Zork: Last Chance--\n\n");
-	printf("%s", scenary.Room1[0]->name);
-	printf("%s", scenary.Room1[0]->description);
+	printf("Start\n");
+	printf("You see a big sign which says WELCOME to the COWARD CITY!Where all cowards come to hide from the rest of the world!There is a bag on the floor\n");
 
 	while (1)
 	{

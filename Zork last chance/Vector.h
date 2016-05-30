@@ -11,7 +11,7 @@ class Vector
 private:
 
 	TYPE *vector = nullptr;
-	uint max_size = 5;
+	uint max_size = 10;
 	uint n_elements = 0;
 
 public:

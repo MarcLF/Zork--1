@@ -18,7 +18,7 @@ public:
 
 	direction direction1;
 
-	Exit(const char* name, const char* description, Room*, Room*, bool, direction);
+	Exit(const char* name, const char* description, Room*, Room*, bool, direction, Type);
 	~Exit();
 
 	int lockedDoor = 1;

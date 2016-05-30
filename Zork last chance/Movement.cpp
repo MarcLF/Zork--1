@@ -4,7 +4,7 @@
 //Movement functions
 void World::GoNorth()
 {
-	if (player->Pos == Room1[13])
+	if (player->Pos == (Room*)entity[13])
 	{
 		printf("You are still in the Maze \n");
 		Maze();
@@ -13,22 +13,22 @@ void World::GoNorth()
 	{
 		for (int i = 0; i < NUM_EXITS; i++)
 		{
-			if (Exit1[i]->origin == player->Pos && Exit1[i]->direction1 == north)
+			if (entity[i]->entities == EXIT && ((Exit*)entity[i])->origin == player->Pos && ((Exit*)entity[i])->direction1 == north)
 			{
 				for (int j = 0; j < NUM_ROOMS; j++)
 				{
-					if (Exit1[i]->destination == Room1[j])
+					if (((Exit*)entity[i])->destination == (Room*)entity[j])
 					{
-						if (Exit1[i]->door == true)
+						if (((Exit*)entity[i])->door == true)
 						{
 							printf("There is a locked door here. \n");
 							return;
 						}
-						else if (Exit1[i]->door == false)
+						else if (((Exit*)entity[i])->door == false)
 						{
-							player->Pos = Exit1[i]->destination;
-							printf("%s", Room1[j]->name);
-							printf("%s", Room1[j]->description);
+							player->Pos = ((Exit*)entity[i])->destination;
+							printf("%s", ((Room*)entity[j])->name);
+							printf("%s", ((Room*)entity[j])->description);
 							return;
 						}
 					}
@@ -41,7 +41,7 @@ void World::GoNorth()
 
 void World::GoSouth()
 {
-	if (player->Pos == Room1[13])
+	if (player->Pos == (Room*)entity[13])
 	{
 		printf("You are still in the Maze \n");
 		Maze();
@@ -50,22 +50,22 @@ void World::GoSouth()
 	{
 		for (int i = 0; i < NUM_EXITS; i++)
 		{
-			if (Exit1[i]->origin == player->Pos && Exit1[i]->direction1 == south)
+			if (entity[i]->entities == EXIT && ((Exit*)entity[i])->origin == player->Pos && ((Exit*)entity[i])->direction1 == south)
 			{
 				for (int j = 0; j < NUM_ROOMS; j++)
 				{
-					if (Exit1[i]->destination == Room1[j])
+					if (((Exit*)entity[i])->destination == (Room*)entity[j])
 					{
-						if (Exit1[i]->door == true)
+						if (((Exit*)entity[i])->door == true)
 						{
 							printf("There is a locked door here. \n");
 							return;
 						}
-						else if (Exit1[i]->door == false)
+						else if (((Exit*)entity[i])->door == false)
 						{
-							player->Pos = Exit1[i]->destination;
-							printf("%s", Room1[j]->name);
-							printf("%s", Room1[j]->description);
+							player->Pos = ((Exit*)entity[i])->destination;
+							printf("%s", ((Room*)entity[j])->name);
+							printf("%s", ((Room*)entity[j])->description);
 							return;
 						}
 					}
@@ -78,7 +78,7 @@ void World::GoSouth()
 
 void World::GoEast()
 {
-	if (player->Pos == Room1[13])
+	if (player->Pos == (Room*)entity[13])
 	{
 		printf("You are still in the Maze \n");
 		Maze();
@@ -87,22 +87,22 @@ void World::GoEast()
 	{
 		for (int i = 0; i < NUM_EXITS; i++)
 		{
-			if (Exit1[i]->origin == player->Pos && Exit1[i]->direction1 == east)
+			if (entity[i]->entities == EXIT && ((Exit*)entity[i])->origin == player->Pos && ((Exit*)entity[i])->direction1 == east)
 			{
 				for (int j = 0; j < NUM_ROOMS; j++)
 				{
-					if (Exit1[i]->destination == Room1[j])
+					if (((Exit*)entity[i])->destination == (Room*)entity[j])
 					{
-						if (Exit1[i]->door == true)
+						if (((Exit*)entity[i])->door == true)
 						{
 							printf("There is a locked door here. \n");
 							return;
 						}
-						else if (Exit1[i]->door == false)
+						else if (((Exit*)entity[i])->door == false)
 						{
-							player->Pos = Exit1[i]->destination;
-							printf("%s", Room1[j]->name);
-							printf("%s", Room1[j]->description);
+							player->Pos = ((Exit*)entity[i])->destination;
+							printf("%s", ((Room*)entity[j])->name);
+							printf("%s", ((Room*)entity[j])->description);
 							return;
 						}
 					}
@@ -115,7 +115,7 @@ void World::GoEast()
 
 void World::GoWest()
 {
-	if (player->Pos == Room1[13])
+	if (player->Pos == (Room*)entity[13])
 	{
 		printf("You are still in the Maze \n");
 		Maze();
@@ -124,22 +124,22 @@ void World::GoWest()
 	{
 		for (int i = 0; i < NUM_EXITS; i++)
 		{
-			if (Exit1[i]->origin == player->Pos && Exit1[i]->direction1 == west)
+			if (entity[i]->entities == EXIT && ((Exit*)entity[i])->origin == player->Pos && ((Exit*)entity[i])->direction1 == west)
 			{
 				for (int j = 0; j < NUM_ROOMS; j++)
 				{
-					if (Exit1[i]->destination == Room1[j])
+					if (((Exit*)entity[i])->destination == (Room*)entity[j])
 					{
-						if (Exit1[i]->door == true)
+						if (((Exit*)entity[i])->door == true)
 						{
 							printf("There is a locked door here. \n");
 							return;
 						}
-						else if (Exit1[i]->door == false)
+						else if (((Exit*)entity[i])->door == false)
 						{
-							player->Pos = Exit1[i]->destination;
-							printf("%s", Room1[j]->name);
-							printf("%s", Room1[j]->description);
+							player->Pos = ((Exit*)entity[i])->destination;
+							printf("%s", ((Room*)entity[j])->name);
+							printf("%s", ((Room*)entity[j])->description);
 							return;
 						}
 					}

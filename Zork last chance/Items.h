@@ -14,7 +14,7 @@ public:
 	bool IsStored = false;
 	int MaxStorage;
 
-	Item(const char*, const char*, Room* room, bool, bool, int);
+	Item(const char*, const char*, Room* room, bool, bool, int, Type);
 	~Item();
 };
 

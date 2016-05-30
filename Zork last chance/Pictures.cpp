@@ -4,7 +4,7 @@
 //Items
 void World::Pictures(MyString&input) const
 {
-	if (Item1[0]->taken == true && Item1[0]->name == input)
+	if (((Item*)entity[43])->taken == true && ((Item*)entity[43])->name == input)
 	{
 		printf(R"EOF(
 ||====================================================================||
@@ -24,7 +24,7 @@ void World::Pictures(MyString&input) const
 ||====================================================================||
 )EOF");
 	}
-	else if (Item1[1]->taken == true && Item1[1]->name == input)
+	else if (((Item*)entity[44])->taken == true && ((Item*)entity[44])->name == input)
 	{
 		printf(R"EOF(
  ad8888888888ba 
@@ -39,7 +39,7 @@ Yb,         ,ad8"
 
 )EOF");
 	}
-	else if (Item1[2]->taken == true && Item1[2]->name == input)
+	else if (((Item*)entity[45])->taken == true && ((Item*)entity[45])->name == input)
 	{
 		printf(R"EOF(
         _______
@@ -52,7 +52,7 @@ Yb,         ,ad8"
 
 )EOF");
 	}
-	else if (Item1[3]->taken == true && Item1[3]->name == input)
+	else if (((Item*)entity[46])->taken == true && ((Item*)entity[46])->name == input)
 	{
 		printf(R"EOF(
    .eec.              .e$$$c                                

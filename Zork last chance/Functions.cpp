@@ -5,10 +5,10 @@ void World::TakeObject(MyString&input)
 {
 	for (int i = 0; i < NUM_ITEMS; i++)
 	{
-		if (Item1[i]->taken == false && Item1[i]->name == input)
+		if (((Item*)entity[i])->taken == false && ((Item*)entity[i])->name == input)
 		{
 			printf("You take the %s \n", input);
-			Item1[i]->taken = true;
+			((Item*)entity[i])->taken = true;
 			Pictures(input);
 		}
 	}
@@ -18,24 +18,24 @@ void World::DropObject(MyString&input)
 {
 	for (int i = 0; i < NUM_ITEMS; i++)
 	{
-		if (Item1[i]->taken == true && Item1[i]->name == input && Item1[i]->IsStored == false)
+		if (((Item*)entity[i])->taken == true && ((Item*)entity[i])->name == input && ((Item*)entity[i])->IsStored == false)
 		{
 			printf("You drop the %s \n", input);
 			Pictures(input);
-			Item1[i]->taken = false;
-			Item1[i]->place = player->Pos;
+			((Item*)entity[i])->taken = false;
+			((Item*)entity[i])->place = player->Pos;
 		}
-		if (Item1[i]->taken == true && Item1[i]->name == input && Item1[i]->IsStored == true)
+		if (((Item*)entity[i])->taken == true && ((Item*)entity[i])->name == input && ((Item*)entity[i])->IsStored == true)
 		{
 			for (int j = 0; j < NUM_ITEMS; j++)
 			{
-				if (Item1[i]->place == Item1[j]->place)
+				if (((Item*)entity[i])->place == ((Item*)entity[j])->place)
 				{
-					printf("You drop the %s from your %s \n", input, Item1[j]->name);
+					printf("You drop the %s from your %s \n", input, ((Item*)entity[j])->name);
 					Pictures(input);
-					Item1[i]->taken = false;
-					Item1[i]->place = player->Pos;
-					Item1[j]->MaxStorage++;
+					((Item*)entity[i])->taken = false;
+					((Item*)entity[i])->place = player->Pos;
+					((Item*)entity[j])->MaxStorage++;
 				}
 			}
 		}
@@ -54,26 +54,26 @@ void World::PutObject(MyString&input)
 
 	for (int i = 0; i < NUM_ITEMS; i++)
 	{
-		if (Item1[i]->taken == true && Item1[i]->name == input)
+		if (((Item*)entity[i])->taken == true && ((Item*)entity[i])->name == input)
 		{
 			for (int j = 0; j < NUM_ITEMS; j++)
 			{
-				if (Item1[j]->taken == true && Item1[j]->name == input3 && Item1[j]->CanStore == true && Item1[j]->MaxStorage > 0)
+				if (((Item*)entity[j])->taken == true && ((Item*)entity[j])->name == input3 && ((Item*)entity[j])->CanStore == true && ((Item*)entity[j])->MaxStorage > 0)
 				{
-					Item1[i]->IsStored = true;
-					Item1[i]->place = Item1[j]->place;
-					printf("Now, %s is inside the %s\n", Item1[i]->name.c_str(), Item1[j]->name.c_str());
-					Item1[j]->MaxStorage--;
+					((Item*)entity[i])->IsStored = true;
+					((Item*)entity[i])->place = ((Item*)entity[j])->place;
+					printf("Now, %s is inside the %s\n", ((Item*)entity[i])->name.c_str(), ((Item*)entity[j])->name.c_str());
+					((Item*)entity[j])->MaxStorage--;
 					return;
 				}
-				else if (Item1[j]->taken == true && Item1[j]->name == input3 && Item1[j]->CanStore == true && Item1[j]->MaxStorage == 0)
+				else if (((Item*)entity[j])->taken == true && ((Item*)entity[j])->name == input3 && ((Item*)entity[j])->CanStore == true && ((Item*)entity[j])->MaxStorage == 0)
 				{
-					printf("%s is full\n", Item1[j]->name.c_str());
+					printf("%s is full\n", ((Item*)entity[j])->name.c_str());
 					return;
 				}
-				else if (Item1[j]->taken == true && Item1[j]->name == input3 &&  Item1[j]->CanStore == false)
+				else if (((Item*)entity[j])->taken == true && ((Item*)entity[j])->name == input3 && ((Item*)entity[j])->CanStore == false)
 				{
-					printf("%s can't store any object\n", Item1[j]->name.c_str());
+					printf("%s can't store any object\n", ((Item*)entity[j])->name.c_str());
 					return;
 				}
 			}
@@ -89,7 +89,7 @@ void World::Inventory()
 	int t = 0;
 	for (int i = 0; i < NUM_ITEMS; i++)
 	{
-		if (Item1[i]->taken == true)
+		if (((Item*)entity[i])->taken == true)
 		{
 			t++;
 		}
@@ -107,26 +107,26 @@ void World::Inventory()
 		{
 			for (int i = 0; i < NUM_ITEMS; i++)
 			{
-				if (Item1[i]->taken == true)
+				if (((Item*)entity[i])->taken == true)
 				{
-					if (Item1[i]->IsStored == false)
+					if (((Item*)entity[i])->IsStored == false)
 					{
-						printf("\n%s\n", Item1[i]->name);
-						printf("%s\n", Item1[i]->description);
+						printf("\n%s\n", ((Item*)entity[i])->name);
+						printf("%s\n", ((Item*)entity[i])->description);
 					}
-					if (Item1[i]->CanStore == true && Item1[i]->MaxStorage < 3)
+					if (((Item*)entity[i])->CanStore == true && ((Item*)entity[i])->MaxStorage < 3)
 					{
-						printf("%s have some objects inside it, do you want to know what are those objects?\n\n>", Item1[i]->name);
+						printf("%s have some objects inside it, do you want to know what are those objects?\n\n>", ((Item*)entity[i])->name);
 						gets_s(Input3);
 						input3 = Input3;
 						if (input3 == "yes")
 						{
 							for (int j = 0; j < NUM_ITEMS; j++)
 							{
-								if (Item1[j]->IsStored == true && Item1[i]->name == "bag")
+								if (((Item*)entity[j])->IsStored == true && ((Item*)entity[i])->name == "bag")
 								{
-									printf("\n%s\n", Item1[j]->name);
-									printf("%s\n", Item1[j]->description);
+									printf("\n%s\n", ((Item*)entity[j])->name);
+									printf("%s\n", ((Item*)entity[j])->description);
 								}
 							}
 						}

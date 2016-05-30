@@ -7,7 +7,7 @@ class Room: public Entity
 {
 public:
 
-	Room(const char* name, const char* description);
+	Room(const char* name, const char* description, Type);
 	~Room();
 
 };

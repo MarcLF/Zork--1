@@ -98,11 +98,15 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 	//Open / Close door inputs
 	else if (input == "open door")
 	{
-		if ((player->Pos == Room1[1] || player->Pos == Room1[2]) && Item1[1]->taken == true)
+		if ((player->Pos == (Room*)entity[1] || player->Pos == (Room*)entity[2]) && ((Item*)entity[44])->taken == true)
 		{
 			printf("\nDoor is open\n");
-			Exit1[8]->door = false;
-			Exit1[9]->door = false;
+			((Exit*)entity[8])->door = false;
+			((Exit*)entity[9])->door = false;
+		}
+		else if ((player->Pos == (Room*)entity[1] || player->Pos == (Room*)entity[2]) && ((Item*)entity[44])->taken == false)
+		{
+			printf("You have nothing to open this door\n");
 		}
 		else
 		{
@@ -111,11 +115,11 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 	}
 	else if (input == "close door")
 	{
-		if ((player->Pos == Room1[1] || player->Pos == Room1[2]) && (Exit1[2]->door == false || Exit1[3]->door == false))
+		if ((player->Pos == (Room*)entity[1] || player->Pos == (Room*)entity[2]) && (((Exit*)entity[2])->door == false || ((Exit*)entity[3])->door == false))
 		{
 			printf("\nYou close the door\n");
-			Exit1[8]->door = true;
-			Exit1[9]->door = true;
+			((Exit*)entity[8])->door = true;
+			((Exit*)entity[9])->door = true;
 		}
 		else 
 		{
@@ -132,12 +136,12 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 
 		for (int i = 0; i < NUM_ITEMS; i++)
 		{
-			if (Item1[i]->taken == false && Item1[i]->name == input2 && player->Pos == Item1[i]->place)
+			if (((Item*)entity[i])->taken == false && ((Item*)entity[i])->name == input2 && player->Pos == ((Item*)entity[i])->place)
 			{
 				TakeObject(input2);
 				return;
 			}
-			else if (Item1[i]->name == input2 && player->Pos != Item1[i]->place)
+			else if (((Item*)entity[i])->name == input2 && player->Pos != ((Item*)entity[i])->place)
 			{
 				printf("\nThere is no %s to take. \n", input2);
 				return;
@@ -155,12 +159,12 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 
 		for (int i = 0; i < NUM_ITEMS; i++)
 		{
-			if (Item1[i]->taken == true && Item1[i]->name == input2)
+			if (((Item*)entity[i])->taken == true && ((Item*)entity[i])->name == input2)
 			{
 				DropObject(input2);
 				return;
 			}
-			else if (Item1[i]->name == input2 && Item1[i]->taken == false)
+			else if (((Item*)entity[i])->name == input2 && ((Item*)entity[i])->taken == false)
 			{
 				printf("\nThere is no %s to drop \n", input2);
 				return;
@@ -178,7 +182,7 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 
 		for (int i = 0; i < NUM_ITEMS; i++)
 		{
-			if (Item1[i]->taken == true && Item1[i]->name == input2)
+			if (((Item*)entity[i])->taken == true && ((Item*)entity[i])->name == input2)
 			{
 				PutObject(input2);
 				return;
@@ -190,12 +194,12 @@ void World::Input(MyString&input)// Here we recieve the Input from the player an
 	//Actions inputs
 	else if (input == "bribe guards")
 	{
-		if (Item1[0]->taken == true)
+		if (((Item*)entity[0])->taken == true)
 		{
 			printf("Both guards look at each other and after a few seconds take the money and left the entrance\n");
-			Exit1[19]->door = false;
+			((Exit*)entity[19])->door = false;
 		}
-		else if (player->Pos != Room1[12])
+		else if (player->Pos != (Room*)entity[12])
 		{
 			printf("What guards?");
 		}

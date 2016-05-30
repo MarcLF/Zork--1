@@ -6,10 +6,10 @@ void World::Look() const
 {
 	for (int i = 0; i < NUM_ROOMS; i++)
 	{
-		if (player->Pos == Room1[i])
+		if (player->Pos == (Room*)entity[i])
 		{
-			printf("%s", Room1[i]->name);
-			printf("%s", Room1[i]->description);
+			printf("%s", ((Room*)entity[i])->name);
+			printf("%s", ((Room*)entity[i])->description);
 		}
 	}
 	
@@ -19,9 +19,9 @@ void World::LookNorth() const
 {
 	for (int j = 0; j < NUM_EXITS; j++)
 	{
-		if (player->Pos == Exit1[j]->origin && Exit1[j]->direction1 == north)
+		if (player->Pos == ((Exit*)entity[j])->origin && ((Exit*)entity[j])->direction1 == north)
 		{
-			printf("%s", Exit1[j]->description);
+			printf("%s", ((Exit*)entity[j])->description);
 			return;
 		}
 	}
@@ -31,9 +31,9 @@ void World::LookSouth() const
 {
 	for (int j = 0; j < NUM_EXITS; j++)
 	{
-		if (player->Pos == Exit1[j]->origin && Exit1[j]->direction1 == south)
+		if (player->Pos == ((Exit*)entity[j])->origin && ((Exit*)entity[j])->direction1 == south)
 		{
-			printf("%s", Exit1[j]->description);
+			printf("%s", ((Exit*)entity[j])->description);
 			return;
 		}
 	}
@@ -43,9 +43,9 @@ void World::LookEast() const
 {
 	for (int j = 0; j < NUM_EXITS; j++)
 	{
-		if (player->Pos == Exit1[j]->origin && Exit1[j]->direction1 == east)
+		if (player->Pos == ((Exit*)entity[j])->origin && ((Exit*)entity[j])->direction1 == east)
 		{
-			printf("%s", Exit1[j]->description);
+			printf("%s", ((Exit*)entity[j])->description);
 			return;
 		}
 	}
@@ -55,9 +55,9 @@ void World::LookWest() const
 {
 	for (int j = 0; j < NUM_EXITS; j++)
 	{
-		if (player->Pos == Exit1[j]->origin && Exit1[j]->direction1 == west)
+		if (player->Pos == ((Exit*)entity[j])->origin && ((Exit*)entity[j])->direction1 == west)
 		{
-			printf("%s", Exit1[j]->description);
+			printf("%s", ((Exit*)entity[j])->description);
 			return;
 		}
 	}
