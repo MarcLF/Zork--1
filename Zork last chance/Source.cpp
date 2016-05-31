@@ -6,7 +6,11 @@
 #include "Vector.h"
 #include "Welcome Screen.h"
 #include "MemoryLeaks.h"
+#include <Windows.h>
+#include <conio.h>
 #include <cstdlib>//Necessary for system("MODE CON COLS=100 LINES=60")
+
+#define Buffer 50
 
 int main()
 {
@@ -14,7 +18,15 @@ int main()
 	Welcome screen;
 	MyString input;
 
-	char Input[30];
+	/* -- Time -- */
+	uint initialization_t = 0;
+	uint current_t = 0;
+	uint size = 0;
+	initialization_t = GetTickCount();
+	/* --  --  -- */
+
+	char order = 0;
+	char Input[Buffer];
 
 	system("MODE CON COLS=100 LINES=55");//I used this command so the whole image fit into the screen
 	scenary.CreateWorld();
@@ -31,11 +43,33 @@ int main()
 
 	while (1)
 	{
-		printf("\n>");
-		gets_s(Input);
-		printf("\n");
-		input = Input;
-		scenary.Input(input);
+		current_t = GetTickCount();
+
+		if (_kbhit())
+		{
+			if (size < Buffer)
+			{
+				order = _getch();
+				Input[size++] = order;
+				printf("%c", order);
+
+				if (Input[size - 1] == '\b')
+				{
+					if (size > 0)
+					{
+						size -= 2;
+					}
+				}
+				if (Input[size - 1] == '\r')
+				{
+					printf("\n");
+					Input[size - 1] = '\0';
+					size = 0;
+					input = Input;
+					scenary.Input(input);
+				}
+			}
+		}
 	}
 
 	system("pause");

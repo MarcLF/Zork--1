@@ -13,7 +13,7 @@ World::World()
 void World::CreateWorld()
 {
 	/* Rooms */
-
+	
 	//Start 0
 	entity.push_back(new Room("Start\n", "You see a big sign which says WELCOME to the COWARD CITY!Where all cowards come to hide from the rest of the world! There is a bag on the floor\n", ROOM));
 	//Road 1
